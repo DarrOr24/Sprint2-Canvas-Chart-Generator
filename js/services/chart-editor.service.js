@@ -5,11 +5,13 @@ var gChart = {
     title: '',
     valueType: 'percent/value',
     terms: [{
+        id: 1,
         name: 'term1',
         value: 300,
         color: '#d3d3d3'
     }, 
     {
+        id: 2,
         name: 'term2',
         value: 100,
         color: '#d87093'  

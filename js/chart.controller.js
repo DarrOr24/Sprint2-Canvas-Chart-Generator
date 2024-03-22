@@ -12,21 +12,22 @@ function onInit() {
 
 function renderEditor(){
     const {terms} = gChart
+
     var strHtmls = terms.map(term => `
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="${term.name}" size="5">
+        <input type="text" id="name" name="name${term.id}" value="${term.name}" size="5">
                     
         <label for="value">Value:</label>
-        <input type="number" id="value" name="value" value="${term.value}" style="width: 50px;">
+        <input type="number" id="value" name="value${term.id}" value="${term.value}" style="width: 50px;">
                 
         <label for="color">Color:</label>
-        <input type="color" id="color" name="color" value="${term.color}" style="width: 30px;"/>
+        <input type="color" id="color" name="color${term.id}" value="${term.color}" style="width: 30px;"/>
 
         <button type="button" onclick="onRemoveTerm(event)">X</button> 
         <br>
         `)
 
-    document.querySelector('.terms').innerHTML = strHtmls.join('')
+        document.querySelector('.terms').innerHTML = strHtmls.join('')
     
 }
 
@@ -37,9 +38,11 @@ function onChartSelect(chartType){
 function onSubmit(ev){
     ev.preventDefault()
 
+    console.log(ev)
+
     const userData = new FormData(ev.target)
     const userDataObj = Object.fromEntries(userData)
-    
+    console.log(userDataObj)
     insertUserInput(userDataObj)
     // renderChartEditor()
 }
