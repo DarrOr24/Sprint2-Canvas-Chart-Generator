@@ -4,8 +4,19 @@ var gChart = {
     theme: '',
     title: '',
     valueType: 'percent/value',
-    terms: [{}, {}]
+    terms: [{
+        name: 'term1',
+        value: 300,
+        color: '#d3d3d3'
+    }, 
+    {
+        name: 'term2',
+        value: 100,
+        color: '#d87093'  
+    }]
 }
+
+
 
 function updateChartType(chartType){
     gChart.theme = chartType  
