@@ -13,26 +13,29 @@
     <section class="chart-editor">
         <h2>Input your chart values</h2>
         <form id="chart-values" onsubmit="onSubmit(event)">
+            <label for="title">Chart title:</label>
+            <input type="text" id="title" name="title" value="Title">
+
             <div class="term1">
-                <label for="term1-name">Name:</label>
-                <input type="text" id="term1-name" name="term1-name" value="Term1">
+                <label for="name1">Name:</label>
+                <input type="text" id="name1" name="name1" value="Term1">
         
-                <label for="term1-value">Value:</label>
-                <input type="number" id="term1-value" name="term1-value" value="30">
+                <label for="value1">Value:</label>
+                <input type="number" id="value1" name="value1" value="30">
     
-                <label for="term1-color">Color:</label>
-                <input type="color" id="term1-color" name="term1-color" value="#d3d3d3"/>
+                <label for="color1">Color:</label>
+                <input type="color" id="color1" name="color1" value="#d3d3d3"/>
             </div>
             
             <div class="term2">
-                <label for="term2-name">Name:</label>
-                <input type="text" id="term2-name" name="term2-name" value="Term2">
+                <label for="name2">Name:</label>
+                <input type="text" id="name2" name="name2" value="Term2">
         
-                <label for="term2-value">Value:</label>
-                <input type="number" id="term2-value" name="term2-value" value="10">
+                <label for="value2">Value:</label>
+                <input type="number" id="value2" name="value2" value="10">
     
-                <label for="term2-color">Color:</label>
-                <input type="color" id="term2-color" name="term2-color" value="#d87093"/>
+                <label for="color2">Color:</label>
+                <input type="color" id="color2" name="color2" value="#d87093"/>
             </div>
          
             <button>Submit</button>

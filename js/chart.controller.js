@@ -10,5 +10,5 @@ function onSubmit(ev){
     const userData = new FormData(ev.target)
     const userDataObj = Object.fromEntries(userData)
     
-    createDataObj(userDataObj)
+    insertUserInput(userDataObj)
 }
