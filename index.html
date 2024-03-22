@@ -10,38 +10,44 @@
 <body onload="onInit()" class="main-layout">
     <h1>Chart Generator</h1>
 
-    <section class="chart-gallery">
-        <h2>Select chart type</h2>
-        <div class="chart-samples chart-samples-layout"></div>
-    </section>
-
     <section class="chart-editor">
         <h2>Input your chart values</h2>
         <form id="chart-values" onsubmit="onSubmit(event)">
             <div class="term1">
                 <label for="term1-name">Name:</label>
-                <input type="text" id="term1-name" placeholder="Term1">
-    
+                <input type="text" id="term1-name" name="term1-name" value="Term1">
+        
                 <label for="term1-value">Value:</label>
-                <input type="number" id="term1-value" placeholder="10">
-
+                <input type="number" id="term1-value" name="term1-value" value="30">
+    
                 <label for="term1-color">Color:</label>
                 <input type="color" id="term1-color" name="term1-color" value="#d3d3d3"/>
             </div>
-
+            
             <div class="term2">
                 <label for="term2-name">Name:</label>
-                <input type="text" id="term2-name" placeholder="Term2">
-    
+                <input type="text" id="term2-name" name="term2-name" value="Term2">
+        
                 <label for="term2-value">Value:</label>
-                <input type="number" id="term2-value" placeholder="10">
-
+                <input type="number" id="term2-value" name="term2-value" value="10">
+    
                 <label for="term2-color">Color:</label>
                 <input type="color" id="term2-color" name="term2-color" value="#d87093"/>
             </div>
+         
+            <button>Submit</button>
+            <button type="reset">Reset</button>
+           
             
         </form>
     </section>
+
+    <section class="chart-gallery">
+        <h2>Select chart type</h2>
+        <div class="chart-samples chart-samples-layout"></div>
+    </section>
+
+   
 
     <script src="js/services/chart.service.js"></script>
     <script src="js/chart.controller.js"></script>

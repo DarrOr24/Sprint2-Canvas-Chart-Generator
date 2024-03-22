@@ -23,6 +23,10 @@ var gChart = {
     ]
 }
 
+function createDataObj(userDataObj){
+    console.log(userDataObj)
+}
+
 function createChart(chartType){
     console.log('chart type:', chartType)
     renderChartEditor()
