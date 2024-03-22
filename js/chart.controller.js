@@ -24,3 +24,7 @@ function onSubmit(ev){
     createChart()
     
 }
+
+function onReset(){
+    clearCanvas()
+}
