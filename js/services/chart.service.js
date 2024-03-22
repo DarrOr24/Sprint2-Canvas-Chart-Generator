@@ -53,7 +53,10 @@ function updateChartType(chartType){
 
 function getChart(){}
 
+
 function createChart(){
+    const {title} = gChart
+    document.querySelector('.chart-title').innerText = title
 	drawCharts()
 }
 

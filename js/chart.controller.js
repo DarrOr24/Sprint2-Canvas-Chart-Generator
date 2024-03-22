@@ -22,4 +22,5 @@ function onSubmit(ev){
     insertUserInput(userDataObj)
     // renderChartEditor()
     createChart()
+    
 }

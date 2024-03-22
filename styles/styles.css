@@ -8,6 +8,8 @@
 /* @import url(basics/helpers.css); */
 
 /* components */
+@import url(components/form.css);
+@import url(components/chart.css);
 
 
 /* media queries */

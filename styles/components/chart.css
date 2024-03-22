@@ -1,0 +1,23 @@
+canvas {
+    border: 1px solid lightgray;
+}
+
+.modal {
+    position: absolute;
+
+    padding: 0.3em;
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: .3em;
+    
+    opacity: 0;
+    transition: opacity 300ms;
+    
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.chart-title {
+    position: absolute;
+    translate: 50%;
+}
