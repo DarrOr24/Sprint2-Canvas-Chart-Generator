@@ -11,7 +11,7 @@
     <h1>Chart Generator</h1>
 
     <div class="main-container-layout">
-        <div class="user-input">
+        <div class="user-input-layout">
             <section class="chart-gallery">
                 <h2>Select chart type</h2>
                 <div class="chart-samples chart-samples-layout"></div>
@@ -32,6 +32,8 @@
                 
                         <label for="color1">Color:</label>
                         <input type="color" id="color1" name="color1" value="#d3d3d3" style="width: 30px;"/>
+
+                        <button type="button" onclick="onRemoveTerm(event)">X</button> 
                     </div>
                         
                     <div class="term2">
@@ -43,14 +45,20 @@
                 
                         <label for="color2">Color:</label>
                         <input type="color" id="color2" name="color2" value="#d87093" style="width: 30px;"/>
+
+                        <button type="button" onclick="onRemoveTerm(event)">X</button> 
                     </div>
                      
-                    <button>Submit</button>
-                    <button type="reset" onclick="onReset()">Reset</button>
-                       
-                        
+                    <div class="action-btns">
+                        <button onclick="onAddTerm()">Add term</button>
+                        <button>Draw Chart</button>
+                        <button type="reset">Reset</button>   
+                        <button type="button" onclick="onClearChart()">Clear chart</button> 
+                    </div>
+                    
                 </form>
-            </section>
+            
+
         </div>
             
         <section class="chart-display">
@@ -62,6 +70,7 @@
 
    
 
+    <script src="js/services/chart-editor.service.js"></script>
     <script src="js/services/chart.service.js"></script>
     <script src="js/chart.controller.js"></script>
     <script src="js/gallery.controller.js"></script>

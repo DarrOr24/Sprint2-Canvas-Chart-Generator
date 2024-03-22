@@ -3,53 +3,9 @@
 const BAR_WIDTH = 50
 const BAR_SPACE = 25
 
-var gChart = {
-    theme: 'rect',
-    title: 'Elections Results',
-    style: {
-        font: 'Arial',
-        fontSize: '45px',
-        backgroundColor: 'transparent'
-    },
-    valueType: 'percent/value',
-    terms: [
-        {
-            name: 'Puk',
-            value: 50,
-            color: 'pink'
-        },
-        {
-            name: 'Muk',
-            value: 50,
-            color: 'green'
-        }
-    ]
-}
-
 var gElCanvas
 var gCtx
 
-
-function insertUserInput(userDataObj){
-    const {title, name1, value1, color1, name2, value2, color2} = userDataObj
-    
-    gChart.title = title
-    gChart.terms[0].name = name1
-    gChart.terms[0].value = value1
-    gChart.terms[0].color = color1
-
-    gChart.terms[1].name = name2
-    gChart.terms[1].value = value2
-    gChart.terms[1].color = color2
-}
-
-function updateChartType(chartType){
-    gChart.theme = chartType  
-}
-
-// function renderChartEditor(){
-//     console.log(gChart)
-// }
 
 function getChart(){}
 
@@ -57,8 +13,8 @@ function clearCanvas(){
     gCtx.fillStyle = 'whitesmoke'
 	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
     document.querySelector('.chart-title').innerText = ''
+    
 }
-
 
 function createChart(){
     const {title} = gChart
@@ -82,7 +38,7 @@ function drawCharts(){
 function onMouseMove(ev) {
 	const { offsetX, offsetY, clientX, clientY } = ev
     const {terms} = gChart
-
+    
     const term = terms.find(term => {
         var { x, y, value } = term
 

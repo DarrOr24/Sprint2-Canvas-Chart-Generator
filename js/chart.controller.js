@@ -21,10 +21,13 @@ function onSubmit(ev){
     
     insertUserInput(userDataObj)
     // renderChartEditor()
-    createChart()
-    
+    createChart() 
 }
 
-function onReset(){
+function onClearChart(){
     clearCanvas()
+}
+
+function onRemoveTerm(ev){
+    console.log(ev)
 }
