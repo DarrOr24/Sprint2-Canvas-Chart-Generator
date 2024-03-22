@@ -14,7 +14,7 @@ body {
 }
   
 img {
-    width: 20em;
+    width: 10em;
     
 }
   
@@ -28,6 +28,10 @@ img {
     line-height: 1.3;
     margin: 0 0 0.8em;
   } */
+
+h1 {
+    text-align: center;
+}
   
 h1, h2 {
     text-transform: uppercase;

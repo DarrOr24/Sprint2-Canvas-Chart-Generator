@@ -1,7 +1,16 @@
 'use strict'
 
+function onInit() {
+    renderGallery()
+    gElCanvas = document.querySelector('canvas')
+	gCtx = gElCanvas.getContext('2d')
+
+    gCtx.fillStyle = 'whitesmoke'
+	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+}
+
 function onChartSelect(chartType){
-    createChart(chartType)
+    updateChartType(chartType)
 }
 
 function onSubmit(ev){
@@ -11,4 +20,6 @@ function onSubmit(ev){
     const userDataObj = Object.fromEntries(userData)
     
     insertUserInput(userDataObj)
+    // renderChartEditor()
+    createChart()
 }

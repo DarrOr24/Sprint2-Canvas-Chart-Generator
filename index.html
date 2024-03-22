@@ -10,45 +10,54 @@
 <body onload="onInit()" class="main-layout">
     <h1>Chart Generator</h1>
 
-    <section class="chart-editor">
-        <h2>Input your chart values</h2>
-        <form id="chart-values" onsubmit="onSubmit(event)">
-            <label for="title">Chart title:</label>
-            <input type="text" id="title" name="title" value="Title">
-
-            <div class="term1">
-                <label for="name1">Name:</label>
-                <input type="text" id="name1" name="name1" value="Term1">
-        
-                <label for="value1">Value:</label>
-                <input type="number" id="value1" name="value1" value="30">
-    
-                <label for="color1">Color:</label>
-                <input type="color" id="color1" name="color1" value="#d3d3d3"/>
-            </div>
+    <div class="main-container-layout">
+        <div class="user-input">
+            <section class="chart-gallery">
+                <h2>Select chart type</h2>
+                <div class="chart-samples chart-samples-layout"></div>
+            </section>
             
-            <div class="term2">
-                <label for="name2">Name:</label>
-                <input type="text" id="name2" name="name2" value="Term2">
-        
-                <label for="value2">Value:</label>
-                <input type="number" id="value2" name="value2" value="10">
-    
-                <label for="color2">Color:</label>
-                <input type="color" id="color2" name="color2" value="#d87093"/>
-            </div>
-         
-            <button>Submit</button>
-            <button type="reset">Reset</button>
-           
+            <section class="chart-editor">
+                <h2>Insert chart values</h2>
+                <form id="chart-values" onsubmit="onSubmit(event)">
+                    <label for="title">Chart title:</label>
+                    <input type="text" id="title" name="title" value="Title">
             
-        </form>
-    </section>
-
-    <section class="chart-gallery">
-        <h2>Select chart type</h2>
-        <div class="chart-samples chart-samples-layout"></div>
-    </section>
+                    <div class="term1">
+                        <label for="name1">Name:</label>
+                        <input type="text" id="name1" name="name1" value="Term1">
+                    
+                        <label for="value1">Value:</label>
+                        <input type="number" id="value1" name="value1" value="30">
+                
+                        <label for="color1">Color:</label>
+                        <input type="color" id="color1" name="color1" value="#d3d3d3"/>
+                    </div>
+                        
+                    <div class="term2">
+                        <label for="name2">Name:</label>
+                        <input type="text" id="name2" name="name2" value="Term2">
+                    
+                        <label for="value2">Value:</label>
+                        <input type="number" id="value2" name="value2" value="10">
+                
+                        <label for="color2">Color:</label>
+                        <input type="color" id="color2" name="color2" value="#d87093"/>
+                    </div>
+                     
+                    <button>Submit</button>
+                    <button type="reset">Reset</button>
+                       
+                        
+                </form>
+            </section>
+        </div>
+            
+        <section class="chart-display">
+            <canvas width="450" height="450" onmousemove="onMouseMove(event)"></canvas>
+            <div class="modal"></div>
+        </section>
+    </div>
 
    
 

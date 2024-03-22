@@ -11,7 +11,12 @@
     grid-column: 2;
 }
 
-/* Chart-Gallery layout */
+.main-container-layout{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+/* chart-gallery layout */
 
 .chart-samples-layout {
     display: grid;
