@@ -2,11 +2,18 @@
     display: grid;
     /* grid-template-columns: 20px 1fr 20px; */
     grid-template-columns:
-      minmax(20px, 1fr)
+      minmax(50px, 1fr)
       minmax(auto, 1060px)
-      minmax(20px, 1fr);
+      minmax(50px, 1fr);
 }
 
 .main-layout > * {
     grid-column: 2;
+}
+
+/* Chart-Gallery layout */
+
+.chart-samples-layout {
+    display: grid;
+    grid-auto-flow: column;
 }

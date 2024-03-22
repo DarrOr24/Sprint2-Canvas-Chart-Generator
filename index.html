@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body class="main-layout">
+<body onload="onInit()" class="main-layout">
     <h1>Chart Generator</h1>
-    
-    <section class="chart-gallery">Chart Gallery</section>
+
+    <section class="chart-gallery">
+        <h2>Chart Gallery</h2>
+        <div class="chart-samples chart-samples-layout"></div>
+    </section>
+
     <section class="chart-editor">Chart Editor</section>
 
     <script src="js/services/chart.service.js"></script>
