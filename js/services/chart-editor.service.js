@@ -1,5 +1,7 @@
 'use strict'
 
+const STORAGE_KEY = 'chartDB'
+
 var gTermCount = 2
 
 var gChart = _createChart()
@@ -31,12 +33,10 @@ function insertInputData(formDataObj){
         }
     }
    
-   
-    gChart.terms.forEach((term, idx, arr) => {
+    gChart.terms.forEach((term, idx) => {
         term.name = names[idx]
         term.value = values[idx]
         term.color = colors[idx]
-
     } )
       
 }
@@ -79,4 +79,8 @@ function _createChart() {
         valueType: 'percent/value',
         terms: [_createTerm(),_createTerm()]
     }
+}
+
+function _saveChartToStorage() {
+    saveToStorage(STORAGE_KEY, gChart)
 }

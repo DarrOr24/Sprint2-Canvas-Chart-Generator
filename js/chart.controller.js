@@ -32,7 +32,7 @@ function renderChartTypes() {
 function renderEditor(){
     const {terms} = gChart
 
-    var strHtmls = terms.map((term,idx, arr) => `
+    var strHtmls = terms.map((term,idx) => `
         <label for="name">Name:</label>
         <input type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="5">
                     
