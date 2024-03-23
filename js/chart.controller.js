@@ -65,6 +65,7 @@ function onSubmit(ev){
 
 function onDrawChart(){
     clearCanvas()
+    updateFormData()
     drawChart()
 }
 
