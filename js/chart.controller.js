@@ -57,7 +57,7 @@ function onRemoveTerm(ev){
     console.log(ev)
 }
 
-function onAddTerm(ev){
+function onAddTerm(){
     const form = document.getElementById('chart-values')
     const formData = new FormData(form)
     const formDataObj = Object.fromEntries(formData)
