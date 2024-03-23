@@ -8,6 +8,7 @@
 /* @import url(basics/helpers.css); */
 
 /* components */
+@import url(components/header.css);
 @import url(components/form.css);
 @import url(components/chart.css);
 @import url(components/btns.css);
