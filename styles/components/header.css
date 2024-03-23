@@ -1,9 +1,13 @@
 header {
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
 }
 
-.my-charts-btn {
+header h1 {
+    flex-grow: 4;
+}
+
+header .my-charts-btn {
+    align-self: center;
     width: max-content;
     height: max-content;
 }
