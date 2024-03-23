@@ -22,8 +22,11 @@ function onReset(){
 function renderChartTypes() {
 
     const strHtmls = `
-    <div onclick = "onChartSelect('rect')" class="sample1"><img src="img/bar-chart.png" alt=""></div>
-    <div onclick = "onChartSelect('circle')" class="sample2"><img src="img/circle-chart.jpg" alt=""></div>`
+    <img src="img/bar-chart.png" alt="" onclick = "onChartSelect('rect')" class="rectChart">
+    <img src="img/circle-chart.jpg" alt="" onclick = "onChartSelect('circle')" class="circleChart">`
+    // const strHtmls = `
+    // <div onclick = "onChartSelect('rect')" class=""><img src="img/bar-chart.png" alt=""></div>
+    // <div onclick = "onChartSelect('circle')" class="sample2"><img src="img/circle-chart.jpg" alt=""></div>`
 
     document.querySelector('.chart-samples').innerHTML = strHtmls
 }
@@ -39,9 +42,9 @@ function renderEditor(){
         <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
                 
         <label for="color">Color:</label>
-        <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 30px;"/>
+        <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 25px;"/>
 
-        <button type="button" onclick="onRemoveTerm(${idx})">X</button> 
+        <button class="btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
         <br>
         `)
 

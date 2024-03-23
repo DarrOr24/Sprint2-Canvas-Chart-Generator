@@ -4,9 +4,9 @@
 function renderGallery() {
 
     const strHtmls = `
-            <img src="img/square.jpg" onclick="onSelectImg(this)" />
-			<img src="img/square.jpg" onclick="onSelectImg(this)" />
-			<img src="img/square.jpg" onclick="onSelectImg(this)" />`
+            <img src="img/square.jpg" onclick="onSelectImg(this)" class="gallery-chart" />
+			<img src="img/square.jpg" onclick="onSelectImg(this)" class="gallery-chart" />
+			<img src="img/square.jpg" onclick="onSelectImg(this)" class="gallery-chart" />`
 
     document.querySelector('.gallery-charts').innerHTML = strHtmls
 }

@@ -16,15 +16,14 @@
         <button onclick="onMyCharts()" class="my-charts-btn btn" >My Charts</button>
     </header>
     
-
     <div class="main-container-layout">
-        <div class="user-input-layout">
+        <div class="chart-editor-layout chart-editor">
             <section class="chart-types">
                 <h2>Select chart type</h2>
                 <div class="chart-samples chart-samples-layout"></div>
             </section>
             
-            <section class="chart-editor">
+            <section>
                 <h2>Insert chart values</h2>
                 <form id="chart-values" onsubmit="onSubmit(event)">
                     <label for="title">Title:</label>
@@ -33,12 +32,12 @@
                     <div class="terms"></div>
         
                     <div class="action-btns">
-                        <button type="submit" onclick="onAddTerm()">Add term</button>
-                        <button>Submit</button>
-                        <button type="reset" onclick="onReset()">Reset</button>   
+                        <button class="btn" type="submit" onclick="onAddTerm()">Add term</button>
+                        <button class="btn">Submit</button>
+                        <button class="btn" type="reset" onclick="onReset()">Reset</button>   
                         <br>
-                        <button type="button" onclick="onClearChart()">Clear chart</button> 
-                        <button type="button" onclick="onDrawChart()">Draw chart</button> 
+                        <button class="btn" type="button" onclick="onClearChart()">Clear chart</button> 
+                        <button class="btn" type="button" onclick="onDrawChart()">Draw chart</button> 
                     </div>
                     
                 </form>
@@ -62,7 +61,6 @@
         <div class="gallery-charts"></div>
     </section>
 
-
     <div class="my-charts-box">
         <h2 class="my-charts-title">My Charts</h2>
             <div class="my-charts">
@@ -73,7 +71,6 @@
             <button class="btn" onclick="onCloseMyCharts()">X</button>
 
     </div>
-
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>
