@@ -1,6 +1,6 @@
 'use strict'
 
-const STORAGE_KEY = 'chartDB'
+const STORAGE_KEY = 'canvas'
 
 var gTermCount = 2
 

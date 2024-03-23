@@ -11,7 +11,6 @@ function onInit() {
 	gCtx = gElCanvas.getContext('2d')
 
     clearCanvas()
-
 }
 
 function onReset(){
@@ -33,7 +32,7 @@ function renderEditor(){
     const {terms} = gChart
 
     var strHtmls = terms.map((term,idx) => `
-        <label for="name">Name:</label>
+        <label for="name">Term${idx+1}:</label>
         <input type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="5">
                     
         <label for="value">Value:</label>
@@ -94,4 +93,15 @@ function updateFormData(){ //Same as submit
 function onDownloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg') 
     elLink.href = imgContent
+}
+
+function onSave() {
+    saveToStorage('canvas', gChart)
+}
+
+function onLoad() {
+    gChart = loadFromStorage('canvas')
+    clearCanvas()
+    updateFormData()
+    drawChart()
 }
