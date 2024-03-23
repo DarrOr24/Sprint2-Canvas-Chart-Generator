@@ -2,7 +2,7 @@
 
 function onInit() {
     gTermCount = 2
-    renderGallery()
+    renderChartTypes()
     renderEditor()
     gElCanvas = document.querySelector('canvas')
 	gCtx = gElCanvas.getContext('2d')
@@ -14,6 +14,15 @@ function onInit() {
 function onReset(){
     console.log('hi')
     gTermCount = 2
+}
+
+function renderChartTypes() {
+
+    const strHtmls = `
+    <div onclick = "onChartSelect('rect')" class="sample1"><img src="img/bar-chart.png" alt=""></div>
+    <div onclick = "onChartSelect('circle')" class="sample2"><img src="img/circle-chart.jpg" alt=""></div>`
+
+    document.querySelector('.chart-samples').innerHTML = strHtmls
 }
 
 function renderEditor(){
