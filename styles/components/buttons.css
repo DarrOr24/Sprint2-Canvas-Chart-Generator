@@ -1,0 +1,65 @@
+.btn {
+    padding: 0.75em 1.6em;
+    border: 2px solid #d3d3d3;
+    font-family: lato-bold, sans-serif;
+    font-size: 1em;
+
+    text-transform: uppercase;
+    background-color: beige;
+    color: gray;
+    cursor: pointer;
+    z-index: 1;
+
+    
+}
+
+.btn:hover {
+    color: #d87093;
+    border-color: palevioletred;
+
+}
+
+/* rounded */
+
+.btn.rounded {
+    border-radius: 3em;
+}
+
+/* arrow */
+
+.btn.arrow, .btn.arrow-left {
+    position: relative;
+    transition: padding 0.4s;
+}
+
+.btn.arrow:hover {
+    padding-inline-end: 2.5em;
+}
+
+.btn.arrow-left:hover {
+    padding-inline-start: 2.5em;
+}
+
+.btn.arrow::after {
+    content: "→";
+    position: absolute;
+    right: 0.75em;
+    opacity: 0;
+}
+
+.btn.arrow:hover::after {
+    opacity: 1;
+    transition: opacity .4s .4s;
+}
+
+.btn.arrow-left::before {
+    content: "←";
+    position: absolute;
+    left: 0.75em;
+    opacity: 0;
+}
+
+.btn.arrow-left:hover::before {
+    opacity: 1;
+    transition: opacity .4s .4s;
+}

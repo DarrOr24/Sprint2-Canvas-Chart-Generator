@@ -38,9 +38,10 @@ h1, h2 {
     text-align: center;
 }
   
-/* a {
+a {
     color: var(--primary-1);
-} */
+    text-decoration: none;
+}
   
 /* a:hover {
     text-decoration: none;
