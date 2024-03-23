@@ -12,8 +12,7 @@ function getChart(){}
 function clearCanvas(){
     gCtx.fillStyle = 'whitesmoke'
 	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
-    document.querySelector('.chart-title').innerText = ''
-    
+    document.querySelector('.chart-title').innerText = ''   
 }
 
 function drawChart(){

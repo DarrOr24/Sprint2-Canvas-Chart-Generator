@@ -2,18 +2,20 @@
 
 function onInit() {
     gTermCount = 2
+    gChart = _createChart()
     renderChartTypes()
     renderEditor()
     gElCanvas = document.querySelector('canvas')
 	gCtx = gElCanvas.getContext('2d')
 
-    gCtx.fillStyle = 'whitesmoke'
-	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+    clearCanvas()
+
 }
 
 function onReset(){
-    console.log('hi')
     gTermCount = 2
+    gChart = _createChart()
+    renderEditor()
 }
 
 function renderChartTypes() {
@@ -57,7 +59,6 @@ function onSubmit(ev){
     const formDataObj = Object.fromEntries(formData)
 
     insertInputData(formDataObj)
-    
 }
 
 function onDrawChart(){
