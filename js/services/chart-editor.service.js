@@ -74,6 +74,7 @@ function _createTerm() {
 
 function _createChart() {
     return {
+        type: 'myChart',
         theme: '',
         title: 'Work life Balance',
         valueType: 'percent/value',

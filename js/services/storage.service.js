@@ -11,11 +11,18 @@ function loadFromStorage(key) {
 }
 
 function loadAll(){
+    const len = localStorage.length
+    
+    if (!len){
+        alert('No saved charts')
+        return
+    }
+
     const myChartsArr = []
-    for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+    for ( var i = 0; i < len; ++i ) {
         var val = localStorage.getItem(localStorage.key(i)) 
         var jsonVal = JSON.parse(val)
-        myChartsArr.push( jsonVal )
+        if (jsonVal.type === "myChart") myChartsArr.push( jsonVal )
     }
     return myChartsArr
 }

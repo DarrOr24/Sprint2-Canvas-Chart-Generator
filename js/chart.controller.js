@@ -107,7 +107,7 @@ function onSave() {
 function onMyCharts(){
     document.body.classList.toggle('my-charts-open');
     const myChartsArr = loadAll()
-    const {title} = myChartsArr[2]
+    const {title} = myChartsArr[0]
     console.log(title)
 }
 
