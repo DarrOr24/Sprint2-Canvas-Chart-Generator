@@ -15,7 +15,7 @@ function renderEditor(){
 
     var strHtmls = terms.map((term,idx, arr) => `
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name${idx+1}" value="${term.name}" size="5">
+        <input type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" size="5">
                     
         <label for="value">Value:</label>
         <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
@@ -27,7 +27,7 @@ function renderEditor(){
         <br>
         `)
 
-        document.querySelector('.terms').innerHTML = strHtmls.join('')
+    document.querySelector('.terms').innerHTML = strHtmls.join('')
     
 }
 
