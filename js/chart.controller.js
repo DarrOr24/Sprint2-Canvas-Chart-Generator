@@ -1,6 +1,8 @@
 'use strict'
 
 function onInit() {
+    renderGallery()
+    
     gTermCount = 2
     gChart = _createChart()
     renderChartTypes()

@@ -1,0 +1,5 @@
+.gallery-charts {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+}

@@ -27,7 +27,6 @@
         
                     <div class="action-btns">
                         <button type="submit" onclick="onAddTerm()">Add term</button>
-                        <br>
                         <button>Submit</button>
                         <button type="reset" onclick="onReset()">Reset</button>   
                         <br>
@@ -40,7 +39,7 @@
             
         <section class="chart-display">
             <h2 class="chart-title"></h2>
-            <canvas width="450" height="450" onmousemove="onMouseMove(event)"></canvas>
+            <canvas width="350" height="350" onmousemove="onMouseMove(event)"></canvas>
             <div class="modal"></div>
             <div class="canvas-btns">
                 <button>Download</button>
@@ -51,7 +50,10 @@
 
     </div>
 
-    <section>Chart Gallery</section>
+    <section class="gallery">
+        <h2>Chart Gallery</h2>
+        <div class="gallery-charts"></div>
+    </section>
 
    
     <script src="js/services/util.service.js"></script>
