@@ -2,12 +2,7 @@
 
 var gTermCount = 2
 
-var gChart = {
-    theme: '',
-    title: 'Work life Balance',
-    valueType: 'percent/value',
-    terms: [_createTerm(),_createTerm()]
-}
+var gChart = _createChart()
 
 function updateChartType(chartType){
     gChart.theme = chartType  
@@ -71,9 +66,17 @@ function renderChart(){}
 
 function _createTerm() {
     return {
-        id: makeId(),
         name: '',
         value: 200,
         color: getRandomColor()
+    }
+}
+
+function _createChart() {
+    return {
+        theme: '',
+        title: 'Work life Balance',
+        valueType: 'percent/value',
+        terms: [_createTerm(),_createTerm()]
     }
 }

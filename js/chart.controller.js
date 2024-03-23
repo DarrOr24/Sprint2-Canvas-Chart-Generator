@@ -1,6 +1,7 @@
 'use strict'
 
 function onInit() {
+    gTermCount = 2
     renderGallery()
     renderEditor()
     gElCanvas = document.querySelector('canvas')
@@ -8,6 +9,11 @@ function onInit() {
 
     gCtx.fillStyle = 'whitesmoke'
 	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+}
+
+function onReset(){
+    console.log('hi')
+    gTermCount = 2
 }
 
 function renderEditor(){
@@ -23,7 +29,7 @@ function renderEditor(){
         <label for="color">Color:</label>
         <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 30px;"/>
 
-        <button type="button" onclick="onRemoveTerm('${term.id}', ${idx})">X</button> 
+        <button type="button" onclick="onRemoveTerm(${idx})">X</button> 
         <br>
         `)
 
@@ -53,7 +59,7 @@ function onClearChart(){
     clearCanvas()
 }
 
-function onRemoveTerm(termId, idx){
+function onRemoveTerm(idx){
     updateFormData()
     removeTerm(idx)
 }
