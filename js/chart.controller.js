@@ -2,7 +2,7 @@
 
 function onInit() {
     renderGallery()
-    
+
     gTermCount = 2
     gChart = _createChart()
     renderChartTypes()
@@ -88,4 +88,9 @@ function updateFormData(){ //Same as submit
     const formDataObj = Object.fromEntries(formData)
 
     insertInputData(formDataObj)
+}
+
+function onDownloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL('image/jpeg') 
+    elLink.href = imgContent
 }
