@@ -6,18 +6,8 @@ var gChart = {
     theme: '',
     title: 'Work life Balance',
     valueType: 'percent/value',
-    terms: [{
-        name: '',
-        value: 300,
-        color: getRandomColor()
-    }, 
-    {
-        name: '',
-        value: 100,
-        color: getRandomColor() 
-    }]
+    terms: [_createTerm(),_createTerm()]
 }
-
 
 function updateChartType(chartType){
     gChart.theme = chartType  
@@ -64,15 +54,20 @@ function addTerm(){
     
     gTermCount++
 
-    gChart.terms.push({
-        name: ``,
-        value: 200,
-        color: getRandomColor()  
-    })
-    
+    const newTerm = _createTerm()
+    gChart.terms.push(newTerm) 
     renderEditor()
 } 
 
 function updateTerm(idx, term){} 
 function removeTerm(idx){}
 function renderChart(){}
+
+function _createTerm() {
+    return {
+        id: makeId(),
+        name: '',
+        value: 200,
+        color: getRandomColor()
+    }
+}

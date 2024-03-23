@@ -61,7 +61,7 @@ function onAddTerm(ev){
     const form = document.getElementById('chart-values')
     const formData = new FormData(form)
     const formDataObj = Object.fromEntries(formData)
-    console.log(formDataObj)
+
     insertInputData(formDataObj)
 
     addTerm()
