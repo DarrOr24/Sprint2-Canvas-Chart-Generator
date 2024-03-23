@@ -1,9 +1,14 @@
+.chart-display{
+    position: relative;
+}
+
 canvas {
     border: 1px solid lightgray;
 }
 
 .modal {
     position: absolute;
+    z-index: 1;
 
     padding: 0.3em;
     background-color: lightgray;
@@ -19,5 +24,17 @@ canvas {
 
 .chart-title {
     position: absolute;
-    translate: 50%;
+    left: 50%;
+    translate: -50%;
+    width: max-content;
 }
+/* 
+.canvas-btns {
+    position: absolute;
+    right: -2%;
+}
+
+.download-btn {
+    top: 50%;
+} */
+

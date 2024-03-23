@@ -1,7 +1,7 @@
 'use strict'
 
-const BAR_WIDTH = 50
-const BAR_SPACE = 25
+const BAR_WIDTH = 40
+const BAR_SPACE = 20
 
 var gElCanvas
 var gCtx

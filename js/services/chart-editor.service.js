@@ -67,7 +67,7 @@ function renderChart(){}
 function _createTerm() {
     return {
         name: '',
-        value: getRandomInt(10, 400),
+        value: getRandomInt(10, 300),
         color: getRandomColor()
     }
 }
