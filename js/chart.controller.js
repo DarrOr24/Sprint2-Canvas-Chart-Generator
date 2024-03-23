@@ -15,7 +15,7 @@ function renderEditor(){
 
     var strHtmls = terms.map((term,idx, arr) => `
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" size="5">
+        <input type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="5">
                     
         <label for="value">Value:</label>
         <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
@@ -38,10 +38,10 @@ function onChartSelect(chartType){
 function onSubmit(ev){
     ev.preventDefault()
 
-    const userData = new FormData(ev.target)
-    const userDataObj = Object.fromEntries(userData)
+    const formData = new FormData(ev.target)
+    const formDataObj = Object.fromEntries(formData)
 
-    insertInputData(userDataObj)
+    insertInputData(formDataObj)
     
 }
 
@@ -57,6 +57,12 @@ function onRemoveTerm(ev){
     console.log(ev)
 }
 
-function onAddTerm(){
+function onAddTerm(ev){
+    const form = document.getElementById('chart-values')
+    const formData = new FormData(form)
+    const formDataObj = Object.fromEntries(formData)
+    console.log(formDataObj)
+    insertInputData(formDataObj)
+
     addTerm()
 }

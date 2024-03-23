@@ -7,12 +7,12 @@ var gChart = {
     title: 'Work life Balance',
     valueType: 'percent/value',
     terms: [{
-        name: 'term1',
+        name: '',
         value: 300,
         color: getRandomColor()
     }, 
     {
-        name: 'term2',
+        name: '',
         value: 100,
         color: getRandomColor() 
     }]
@@ -24,22 +24,22 @@ function updateChartType(chartType){
 }
 
 
-function insertInputData(userDataObj){
+function insertInputData(formDataObj){
 
-    const {title, name1, value1, color1, name2, value2, color2} = userDataObj
+    const {title, name1, value1, color1, name2, value2, color2} = formDataObj
     gChart.title = title
     const names = [name1, name2]
     const values = [value1, value2]
     const colors = [color1, color2]
 
     if (gTermCount >= 3){
-        const {name3, value3, color3} = userDataObj
+        const {name3, value3, color3} = formDataObj
         names.push(name3)
         values.push(value3)
         colors.push(color3)
 
         if(gTermCount === 4){
-            const {name4, value4, color4} = userDataObj
+            const {name4, value4, color4} = formDataObj
             names.push(name4)
             values.push(value4)
             colors.push(color4)
@@ -65,7 +65,7 @@ function addTerm(){
     gTermCount++
 
     gChart.terms.push({
-        name: `term${gTermCount}`,
+        name: ``,
         value: 200,
         color: getRandomColor()  
     })
