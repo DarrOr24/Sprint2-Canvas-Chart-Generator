@@ -59,3 +59,6 @@ function openModal(termName, termValue, x, y) {
 function closeModal() {
 	document.querySelector('.modal').style.opacity = 0
 }
+
+
+

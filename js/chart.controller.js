@@ -102,15 +102,13 @@ function onSave() {
     _saveChartToStorage()
 }
 
-function onLoad() {
-    gChart = loadFromStorage('canvas' + gSavedKeyCount)
-    clearCanvas()
-    updateFormData()
-    drawChart()
-}
+
 
 function onMyCharts(){
     document.body.classList.toggle('my-charts-open');
+    const myChartsArr = loadAll()
+    const {title} = myChartsArr[2]
+    console.log(title)
 }
 
 function onCloseMyCharts(){
