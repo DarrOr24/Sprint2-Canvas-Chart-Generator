@@ -16,14 +16,9 @@ function clearCanvas(){
     
 }
 
-function createChart(){
-    const {title} = gChart
+function drawChart(){
+    const {terms, title} = gChart
     document.querySelector('.chart-title').innerText = title
-	drawCharts()
-}
-
-function drawCharts(){
-    const {terms} = gChart
     
     terms.forEach((term, idx) => {
 

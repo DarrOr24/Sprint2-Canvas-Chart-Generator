@@ -13,15 +13,15 @@ function onInit() {
 function renderEditor(){
     const {terms} = gChart
 
-    var strHtmls = terms.map(term => `
+    var strHtmls = terms.map((term,idx, arr) => `
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name${term.id}" value="${term.name}" size="5">
+        <input type="text" id="name" name="name${idx+1}" value="${term.name}" size="5">
                     
         <label for="value">Value:</label>
-        <input type="number" id="value" name="value${term.id}" value="${term.value}" style="width: 50px;">
+        <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
                 
         <label for="color">Color:</label>
-        <input type="color" id="color" name="color${term.id}" value="${term.color}" style="width: 30px;"/>
+        <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 30px;"/>
 
         <button type="button" onclick="onRemoveTerm(event)">X</button> 
         <br>
@@ -38,17 +38,15 @@ function onChartSelect(chartType){
 function onSubmit(ev){
     ev.preventDefault()
 
-    console.log(ev)
-
     const userData = new FormData(ev.target)
     const userDataObj = Object.fromEntries(userData)
-    console.log(userDataObj)
-    insertUserInput(userDataObj)
-    // renderChartEditor()
+
+    insertInputData(userDataObj)
+    
 }
 
 function onDrawChart(){
-    createChart()
+    drawChart()
 }
 
 function onClearChart(){
@@ -57,4 +55,8 @@ function onClearChart(){
 
 function onRemoveTerm(ev){
     console.log(ev)
+}
+
+function onAddTerm(){
+    addTerm()
 }
