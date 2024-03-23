@@ -1,5 +1,7 @@
 'use strict'
 
+var gSavedKeyCount = 1
+
 function onInit() {
     renderGallery()
 
@@ -96,11 +98,12 @@ function onDownloadImg(elLink) {
 }
 
 function onSave() {
-    saveToStorage('canvas', gChart)
+    gSavedKeyCount++
+    saveToStorage('canvas' + gSavedKeyCount, gChart)
 }
 
 function onLoad() {
-    gChart = loadFromStorage('canvas')
+    gChart = loadFromStorage('canvas' + gSavedKeyCount)
     clearCanvas()
     updateFormData()
     drawChart()
