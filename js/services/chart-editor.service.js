@@ -1,9 +1,9 @@
 'use strict'
 
-const STORAGE_KEY = 'canvas'
+const STORAGE_KEY_ARR = []
+var gKeyCount = 0
 
 var gTermCount = 2
-
 var gChart = _createChart()
 
 function updateChartType(chartType){
@@ -82,5 +82,9 @@ function _createChart() {
 }
 
 function _saveChartToStorage() {
-    saveToStorage(STORAGE_KEY, gChart)
+    const {title} = gChart
+    STORAGE_KEY_ARR.push(title)
+    saveToStorage(STORAGE_KEY_ARR[gKeyCount], gChart)
+    gKeyCount++
+   
 }

@@ -9,9 +9,11 @@
 
 <body onload="onInit()" class="main-layout">
 
+    <div class="main-screen" ></div>
+
     <header>
         <h1>Chart Generator</h1>
-        <a class="btn my-charts-btn" href="my-charts.html">My Charts</a>
+        <button onclick="onMyCharts()" class="my-charts-btn btn" >My Charts</button>
     </header>
     
 
@@ -59,6 +61,19 @@
         <h2>Chart Gallery</h2>
         <div class="gallery-charts"></div>
     </section>
+
+
+    <div class="my-charts-box">
+        <h2 class="my-charts-title">My Charts</h2>
+            <div class="my-charts">
+                <li>chart1</li>
+                <li>chart2</li>
+                <li>chart3</li>
+            </div> 
+            <button class="btn" onclick="onCloseMyCharts()">X</button>
+
+    </div>
+
 
     <script src="js/services/util.service.js"></script>
     <script src="js/services/storage.service.js"></script>

@@ -1,4 +1,5 @@
 .btn {
+    width: max-content;
     padding: 0.5em 1.6em;
     border: 2px solid #d3d3d3;
     font-family: lato-bold, sans-serif;

@@ -1,7 +1,5 @@
 'use strict'
 
-var gSavedKeyCount = 1
-
 function onInit() {
     renderGallery()
 
@@ -98,8 +96,7 @@ function onDownloadImg(elLink) {
 }
 
 function onSave() {
-    gSavedKeyCount++
-    saveToStorage('canvas' + gSavedKeyCount, gChart)
+    _saveChartToStorage()
 }
 
 function onLoad() {
@@ -107,4 +104,12 @@ function onLoad() {
     clearCanvas()
     updateFormData()
     drawChart()
+}
+
+function onMyCharts(){
+    document.body.classList.toggle('my-charts-open');
+}
+
+function onCloseMyCharts(){
+    document.body.classList.remove('my-charts-open');
 }
