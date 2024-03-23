@@ -10,6 +10,7 @@
 /* components */
 @import url(components/form.css);
 @import url(components/chart.css);
+@import url(components/btns.css);
 
 
 /* media queries */
