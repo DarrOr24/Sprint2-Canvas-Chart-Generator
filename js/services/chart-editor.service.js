@@ -60,7 +60,13 @@ function addTerm(){
 } 
 
 function updateTerm(idx, term){} 
-function removeTerm(idx){}
+
+function removeTerm(idx){
+    gTermCount--
+    gChart.terms.splice(idx, 1)
+    renderEditor()
+}
+
 function renderChart(){}
 
 function _createTerm() {

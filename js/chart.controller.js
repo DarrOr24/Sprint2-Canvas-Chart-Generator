@@ -23,7 +23,7 @@ function renderEditor(){
         <label for="color">Color:</label>
         <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 30px;"/>
 
-        <button type="button" onclick="onRemoveTerm(event)">X</button> 
+        <button type="button" onclick="onRemoveTerm('${term.id}', ${idx})">X</button> 
         <br>
         `)
 
@@ -53,16 +53,20 @@ function onClearChart(){
     clearCanvas()
 }
 
-function onRemoveTerm(ev){
-    console.log(ev)
+function onRemoveTerm(termId, idx){
+    updateFormData()
+    removeTerm(idx)
 }
 
 function onAddTerm(){
+    updateFormData()
+    addTerm()
+}
+
+function updateFormData(){ //Same as submit
     const form = document.getElementById('chart-values')
     const formData = new FormData(form)
     const formDataObj = Object.fromEntries(formData)
 
     insertInputData(formDataObj)
-
-    addTerm()
 }
