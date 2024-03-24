@@ -26,10 +26,11 @@ body.my-charts-open .my-charts-box {
     font-size: 1.5em;
 }
 
-.my-charts-box .saved-chart-title {
+.my-charts-box .saved-chart-title, .my-charts-box .chart-creation-time {
     width: 12.5em;
 }
 
 .my-charts-box .saved-chart-icon {
     padding: 0;
 }
+

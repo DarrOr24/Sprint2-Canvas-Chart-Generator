@@ -66,8 +66,13 @@
         <h2 class="my-charts-title">My Charts</h2>
 
         <fieldset>
-            <legend>Filter & Sorting</legend>
+            <!-- <legend>Find your chart</legend> -->
             <div class="my-charts-search"></div>
+
+            <form class="search">
+                <input class="search-input" oninput="onMyChartsFilter()" type="search" placeholder="Search...">
+                <button onclick="onClear()">Clear</button>
+            </form>
             
             <div class="sort-by">
                 <select onchange="onSetSortBy()">

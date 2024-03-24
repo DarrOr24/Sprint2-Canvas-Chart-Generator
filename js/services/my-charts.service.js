@@ -16,3 +16,12 @@ function sortMyCharts(sortBy, dir){
 
     renderMyCharts(myChartsArr)
 }
+
+function _filterMyCharts(filterBy){
+    const myChartsArr = getMyCharts()
+    const txt = filterBy.toLowerCase()
+
+    const charts = myChartsArr.filter(chart => chart.title.toLowerCase().includes(txt))
+
+    renderMyCharts(charts)
+}

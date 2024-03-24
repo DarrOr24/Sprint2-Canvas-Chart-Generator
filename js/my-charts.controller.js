@@ -8,9 +8,7 @@ function onMyCharts(){
         document.querySelector('.my-charts').innerHTML = `No saved charts`
         return 
     } 
-    
     renderMyCharts(myChartsArr)
-    
 }
 
 function renderMyCharts(myChartsArr){
@@ -24,7 +22,6 @@ function renderMyCharts(myChartsArr){
 
         document.querySelector('.my-charts').innerHTML = strHtmls.join('') 
 }
-
 
 function onCloseMyCharts(){
     document.body.classList.remove('my-charts-open')
@@ -48,11 +45,10 @@ function onSetSortBy() {
     const dir = elDir.checked ? -1 : 1
 
     sortMyCharts(sortBy, dir)
+}
 
-    // if(sortBy === 'title'){
-    //     gQueryOptions.sortBy = { vendor: dir }
-    // } else if (sortBy === 'time'){
-    //     gQueryOptions.sortBy = { maxSpeed: dir }
-    // }  
+function onMyChartsFilter(){
+    const input = document.querySelector('.search-input')
+    _filterMyCharts(input.value)
 }
 
