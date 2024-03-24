@@ -96,7 +96,7 @@ function onDownloadImg(elLink) {
 }
 
 function onSave() {
-    _saveChartToStorage()
+    _saveToStorage()
 }
 
 
@@ -104,11 +104,17 @@ function onSave() {
 function onMyCharts(){
     document.body.classList.toggle('my-charts-open');
     const myChartsArr = getMyCharts()
-    
-    var strHtmls = myChartsArr.map((chart, idx) => `
-        <li onclick="onOpenSavedChart(${idx})">${chart.title}</li>`)
 
-    document.querySelector('.my-charts').innerHTML = strHtmls.join('')
+    if(myChartsArr.length === 0) {
+        document.querySelector('.my-charts').innerHTML = `No saved charts` 
+    }
+    
+    else {var strHtmls = myChartsArr.map((chart, idx) => `
+        <li onclick="onOpenSavedChart(${idx})">${chart.title}</li>`)
+        document.querySelector('.my-charts').innerHTML = strHtmls.join('')
+    }
+
+    
 }
 
 function onCloseMyCharts(){

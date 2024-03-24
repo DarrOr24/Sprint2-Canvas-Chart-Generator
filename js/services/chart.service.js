@@ -61,7 +61,7 @@ function closeModal() {
 }
 
 function getMyCharts(){
-    const myChartsArr = loadAll()
+    const myChartsArr = loadFromStorage('canvas')
     return myChartsArr
 }
 

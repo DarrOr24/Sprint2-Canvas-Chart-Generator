@@ -1,7 +1,8 @@
 'use strict'
 
-const STORAGE_KEY_ARR = []
-var gKeyCount = 0
+// const STORAGE_KEY_ARR = []
+const MY_CHARTS = loadFromStorage('canvas')
+// var gKeyCount = 0
 
 var gTermCount = 2
 var gChart = _createChart()
@@ -45,7 +46,6 @@ function renderChart(){
     console.log(gChart)
 }
 
-
 function addTerm(){
     if(gTermCount===4){
         alert('Reached max amount of terms')
@@ -67,7 +67,6 @@ function removeTerm(idx){
     renderEditor()
 }
 
-
 function _createTerm() {
     return {
         name: '',
@@ -78,7 +77,6 @@ function _createTerm() {
 
 function _createChart() {
     return {
-        type: 'myChart',
         theme: '',
         title: 'Work life Balance',
         valueType: 'percent/value',
@@ -86,10 +84,9 @@ function _createChart() {
     }
 }
 
-function _saveChartToStorage() {
-    const {title} = gChart
-    STORAGE_KEY_ARR.push(title)
-    saveToStorage(STORAGE_KEY_ARR[gKeyCount], gChart)
-    gKeyCount++
-   
+
+function _saveToStorage() {
+    const chart = structuredClone(gChart)
+    MY_CHARTS.push(chart)
+    saveToStorage('canvas', MY_CHARTS)
 }
