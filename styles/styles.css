@@ -5,10 +5,11 @@
 /* basics */
 @import url(basics/base.css);
 @import url(basics/layout.css);
+@import url(basics/helpers.css);
 /* @import url(basics/helpers.css); */
 
 /* components */
-@import url(components/header.css);
+@import url(components/main-header.css);
 @import url(components/form.css);
 @import url(components/chart.css);
 @import url(components/chart-editor.css);

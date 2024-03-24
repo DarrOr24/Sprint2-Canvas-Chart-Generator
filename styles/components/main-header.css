@@ -1,0 +1,23 @@
+/* header {
+    display: flex;
+    background-color: var(--primary--2);
+    
+} */
+
+.main-header {
+    background-color: var(--primary--2);
+    box-shadow: inset 0px -4px 0 #a6a2a2;
+    margin-block-end: 1%;
+}
+
+.main-header h1 {
+    margin: 0;
+    justify-self: start;
+}
+
+.main-header .my-charts-btn {
+    align-self: center;
+    justify-self: end;
+    width: max-content;
+    height: max-content;
+}
