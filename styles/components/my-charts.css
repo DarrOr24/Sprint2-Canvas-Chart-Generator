@@ -6,8 +6,8 @@
     
     background-color: rgb(255 255 255 / 90%);
     border-inline-start: 1px solid #ccc;
-    min-width: 200px;
-    max-width: 500px;
+
+    min-width: 30em;
     padding: 20px;
     opacity: 0;
     z-index: 3;
