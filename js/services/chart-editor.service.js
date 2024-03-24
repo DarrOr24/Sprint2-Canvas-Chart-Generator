@@ -41,6 +41,11 @@ function insertInputData(formDataObj){
       
 }
 
+function renderChart(){
+    console.log(gChart)
+}
+
+
 function addTerm(){
     if(gTermCount===4){
         alert('Reached max amount of terms')
@@ -62,7 +67,6 @@ function removeTerm(idx){
     renderEditor()
 }
 
-function renderChart(){}
 
 function _createTerm() {
     return {

@@ -24,10 +24,7 @@ function renderChartTypes() {
     const strHtmls = `
     <img src="img/bar-chart.png" alt="" onclick = "onChartSelect('rect')" class="rectChart">
     <img src="img/circle-chart.jpg" alt="" onclick = "onChartSelect('circle')" class="circleChart">`
-    // const strHtmls = `
-    // <div onclick = "onChartSelect('rect')" class=""><img src="img/bar-chart.png" alt=""></div>
-    // <div onclick = "onChartSelect('circle')" class="sample2"><img src="img/circle-chart.jpg" alt=""></div>`
-
+    
     document.querySelector('.chart-samples').innerHTML = strHtmls
 }
 
@@ -106,11 +103,24 @@ function onSave() {
 
 function onMyCharts(){
     document.body.classList.toggle('my-charts-open');
-    const myChartsArr = loadAll()
-    const {title} = myChartsArr[0]
-    console.log(title)
+    const myChartsArr = getMyCharts()
+    
+    var strHtmls = myChartsArr.map((chart, idx) => `
+        <li onclick="onOpenSavedChart(${idx})">${chart.title}</li>`)
+
+    document.querySelector('.my-charts').innerHTML = strHtmls.join('')
 }
 
 function onCloseMyCharts(){
-    document.body.classList.remove('my-charts-open');
+    document.body.classList.remove('my-charts-open')
+}
+
+function onOpenSavedChart(idx){
+    const myChartsArr = getMyCharts()
+    gChart = myChartsArr[idx]
+
+    document.body.classList.remove('my-charts-open')
+
+    clearCanvas()
+    drawChart()
 }

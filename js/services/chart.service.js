@@ -60,5 +60,10 @@ function closeModal() {
 	document.querySelector('.modal').style.opacity = 0
 }
 
+function getMyCharts(){
+    const myChartsArr = loadAll()
+    return myChartsArr
+}
+
 
 
