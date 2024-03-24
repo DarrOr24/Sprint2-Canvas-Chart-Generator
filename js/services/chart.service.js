@@ -1,69 +1,90 @@
 'use strict'
 
-const BAR_WIDTH = 40
-const BAR_SPACE = 20
+const MY_CHARTS = loadFromStorage('canvas')
 
-var gElCanvas
-var gCtx
+var gTermCount = 2
+var gChart = _createChart()
 
-
-function getChart(){}
-
-function clearCanvas(){
-    gCtx.fillStyle = 'whitesmoke'
-	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
-    document.querySelector('.chart-title').innerText = ''   
+function updateChartType(chartType){
+    gChart.theme = chartType  
 }
 
-function drawChart(){
-    const {terms, title} = gChart
-    document.querySelector('.chart-title').innerText = title
-    
-    terms.forEach((term, idx) => {
+function insertInputData(formDataObj){
 
-        term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
-        term.y = gElCanvas.height - term.value
+    const {title, name1, value1, color1, name2, value2, color2} = formDataObj
+    gChart.title = title
+    const names = [name1, name2]
+    const values = [value1, value2]
+    const colors = [color1, color2]
 
-        gCtx.fillStyle = term.color
-        gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value)
-    })
+    if (gTermCount >= 3){
+        const {name3, value3, color3} = formDataObj
+        names.push(name3)
+        values.push(value3)
+        colors.push(color3)
+
+        if(gTermCount === 4){
+            const {name4, value4, color4} = formDataObj
+            names.push(name4)
+            values.push(value4)
+            colors.push(color4)
+        }
+    }
+   
+    gChart.terms.forEach((term, idx) => {
+        term.name = names[idx]
+        term.value = values[idx]
+        term.color = colors[idx]
+    } )
+      
 }
 
-function onMouseMove(ev) {
-	const { offsetX, offsetY, clientX, clientY } = ev
-    const {terms} = gChart
+// function renderChart(){
+//     console.log(gChart)
+// }
+
+function addTerm(){
+    if(gTermCount===4){
+        alert('Reached max amount of terms')
+        return
+    }
     
-    const term = terms.find(term => {
-        var { x, y, value } = term
+    gTermCount++
 
-        return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-                offsetY >= y && offsetY <= y + value)
-    })
+    const newTerm = _createTerm()
+    gChart.terms.push(newTerm) 
+    renderEditor()
+} 
 
-    if(term){
-        openModal(term.name, term.value, clientX, clientY)
-    } else {
-        closeModal()
+// function updateTerm(idx, term){} 
+
+function removeTerm(idx){
+    gTermCount--
+    gChart.terms.splice(idx, 1)
+    renderEditor()
+}
+
+function _createTerm() {
+    return {
+        name: '',
+        value: getRandomInt(10, 300),
+        color: getRandomColor()
     }
 }
 
-function openModal(termName, termValue, x, y) {
-	const elModal = document.querySelector('.modal')
-
-	elModal.innerText = `${termName}: ${termValue}`
-	elModal.style.opacity = 1
-	elModal.style.top = y + 'px'
-	elModal.style.left = x + 'px'
+function _createChart() {
+    return {
+        theme: '',
+        title: 'Work life Balance',
+        valueType: 'percent/value',
+        terms: [_createTerm(),_createTerm()]
+    }
 }
 
-function closeModal() {
-	document.querySelector('.modal').style.opacity = 0
+function _saveToStorage() {
+    const chart = structuredClone(gChart)
+    chart.creationTime = getDate()
+    MY_CHARTS.push(chart)
+    saveToStorage('canvas', MY_CHARTS)
 }
-
-function getMyCharts(){
-    const myChartsArr = loadFromStorage('canvas')
-    return myChartsArr
-}
-
-
 

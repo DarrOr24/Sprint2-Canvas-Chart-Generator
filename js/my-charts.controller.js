@@ -18,6 +18,7 @@ function onMyCharts(){
     }  
 }
 
+
 function onCloseMyCharts(){
     document.body.classList.remove('my-charts-open')
 }
@@ -30,4 +31,22 @@ function onOpenSavedChart(idx){
 
     clearCanvas()
     drawChart()
+}
+
+function onSetSortBy() {
+    const myChartsArr = getMyCharts()
+    console.log(myChartsArr)
+    const elSortBy = document.querySelector('.sort-by select')
+    const elDir = document.querySelector('.sort-by input')
+
+    const sortBy = elSortBy.value
+    const dir = elDir.checked ? -1 : 1
+
+    // if(sortBy === 'title'){
+    //     gQueryOptions.sortBy = { vendor: dir }
+    // } else if (sortBy === 'time'){
+    //     gQueryOptions.sortBy = { maxSpeed: dir }
+    // }  
+
+
 }
