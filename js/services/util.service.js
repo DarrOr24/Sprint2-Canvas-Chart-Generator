@@ -25,3 +25,10 @@ function getRandomInt(min, max) {
 	max = Math.floor(max)
 	return Math.floor(Math.random() * (max - min) + min) // The maximum is exclusive and the minimum is inclusive
 }
+
+function getDate(){
+    const currDate = new Date().toJSON()
+    const date = currDate.slice(0,10)
+    const time = currDate.slice(11, 19)
+    return {date, time}
+}

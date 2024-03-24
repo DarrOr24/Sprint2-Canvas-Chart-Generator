@@ -83,14 +83,8 @@ function _createChart() {
 
 function _saveToStorage() {
     const chart = structuredClone(gChart)
-    chart.creationTime = _getDate()
+    chart.creationTime = getDate()
     MY_CHARTS.push(chart)
     saveToStorage('canvas', MY_CHARTS)
 }
 
-function _getDate (){
-    const currDate = new Date().toJSON()
-    const date = currDate.slice(0,10)
-    const time = currDate.slice(11, 19)
-    return {date, time}
-}

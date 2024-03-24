@@ -106,8 +106,12 @@ function onMyCharts(){
         document.querySelector('.my-charts').innerHTML = `No saved charts` 
     }
     
-    else {var strHtmls = myChartsArr.map((chart, idx) => `
-        <li onclick="onOpenSavedChart(${idx})">${chart.title}</li>`)
+    else {var strHtmls = myChartsArr.map((chart, idx) => 
+        `<tr>
+            <td class="saved-chart-icon btn" onclick="onOpenSavedChart(${idx})"><button>📊</button></td>
+            <td class="saved-chart-title" onclick="onOpenSavedChart(${idx})">${chart.title}</td>
+            <td> ${chart.creationTime.date}\t${chart.creationTime.time}</td>
+        </tr>`)
         document.querySelector('.my-charts').innerHTML = strHtmls.join('')
     }  
 }
