@@ -1,8 +1,6 @@
 'use strict'
 
-// const STORAGE_KEY_ARR = []
 const MY_CHARTS = loadFromStorage('canvas')
-// var gKeyCount = 0
 
 var gTermCount = 2
 var gChart = _createChart()
@@ -10,7 +8,6 @@ var gChart = _createChart()
 function updateChartType(chartType){
     gChart.theme = chartType  
 }
-
 
 function insertInputData(formDataObj){
 
@@ -42,9 +39,9 @@ function insertInputData(formDataObj){
       
 }
 
-function renderChart(){
-    console.log(gChart)
-}
+// function renderChart(){
+//     console.log(gChart)
+// }
 
 function addTerm(){
     if(gTermCount===4){
@@ -59,7 +56,7 @@ function addTerm(){
     renderEditor()
 } 
 
-function updateTerm(idx, term){} 
+// function updateTerm(idx, term){} 
 
 function removeTerm(idx){
     gTermCount--
@@ -83,7 +80,6 @@ function _createChart() {
         terms: [_createTerm(),_createTerm()]
     }
 }
-
 
 function _saveToStorage() {
     const chart = structuredClone(gChart)

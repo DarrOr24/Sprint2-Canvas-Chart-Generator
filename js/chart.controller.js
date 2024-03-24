@@ -46,7 +46,6 @@ function renderEditor(){
         `)
 
     document.querySelector('.terms').innerHTML = strHtmls.join('')
-    
 }
 
 function onChartSelect(chartType){
@@ -99,8 +98,6 @@ function onSave() {
     _saveToStorage()
 }
 
-
-
 function onMyCharts(){
     document.body.classList.toggle('my-charts-open');
     const myChartsArr = getMyCharts()
@@ -112,9 +109,7 @@ function onMyCharts(){
     else {var strHtmls = myChartsArr.map((chart, idx) => `
         <li onclick="onOpenSavedChart(${idx})">${chart.title}</li>`)
         document.querySelector('.my-charts').innerHTML = strHtmls.join('')
-    }
-
-    
+    }  
 }
 
 function onCloseMyCharts(){
