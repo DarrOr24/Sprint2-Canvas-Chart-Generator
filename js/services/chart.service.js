@@ -84,6 +84,7 @@ function _createChart() {
 function _saveToStorage() {
     const chart = structuredClone(gChart)
     chart.creationTime = getDate()
+    
     MY_CHARTS.push(chart)
     saveToStorage('canvas', MY_CHARTS)
 }

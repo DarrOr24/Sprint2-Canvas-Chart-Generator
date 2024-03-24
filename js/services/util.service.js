@@ -30,5 +30,6 @@ function getDate(){
     const currDate = new Date().toJSON()
     const date = currDate.slice(0,10)
     const time = currDate.slice(11, 19)
-    return {date, time}
+	const timeStamp = new Date().getTime()
+    return {date, time, timeStamp}
 }

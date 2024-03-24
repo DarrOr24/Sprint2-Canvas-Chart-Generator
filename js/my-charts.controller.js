@@ -34,19 +34,20 @@ function onOpenSavedChart(idx){
 }
 
 function onSetSortBy() {
-    const myChartsArr = getMyCharts()
-    console.log(myChartsArr)
+    // const myChartsArr = getMyCharts()
+    
     const elSortBy = document.querySelector('.sort-by select')
     const elDir = document.querySelector('.sort-by input')
 
     const sortBy = elSortBy.value
     const dir = elDir.checked ? -1 : 1
 
+    sortMyCharts(sortBy, dir)
+
     // if(sortBy === 'title'){
     //     gQueryOptions.sortBy = { vendor: dir }
     // } else if (sortBy === 'time'){
     //     gQueryOptions.sortBy = { maxSpeed: dir }
     // }  
-
-
 }
+
