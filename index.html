@@ -62,11 +62,29 @@
     </section>
 
     <div class="my-charts-box">
+        <button class="my-charts-btn btn" onclick="onCloseMyCharts()">X</button>
         <h2 class="my-charts-title">My Charts</h2>
-            <table>
-                <tbody class="my-charts"></tbody>
-            </table> 
-            <button class="btn" onclick="onCloseMyCharts()">X</button>
+
+        <fieldset>
+            <legend>Filter & Sorting</legend>
+            <div class="my-charts-search"></div>
+            
+            <div class="sort-by">
+                <select onchange="onSetSortBy()">
+                    <option value="">Select Sorting</option>
+                    <option value="vendor">By Title</option>
+                    <option value="maxSpeed">By Creation Date</option>
+                </select>
+                <label>
+                    <span>Descending</span>
+                    <input class="sort-desc" type="checkbox" oninput="onSetSortBy()" />
+                </label>
+            </div>
+        </fieldset> 
+
+        <table>
+            <tbody class="my-charts"></tbody>
+        </table> 
     </div>
 
     <script src="js/services/util.service.js"></script>
@@ -74,6 +92,7 @@
     <script src="js/services/chart-editor.service.js"></script>
     <script src="js/services/chart.service.js"></script>
     <script src="js/chart.controller.js"></script>
+    <script src="js/my-charts.controller.js"></script>
     <script src="js/gallery.controller.js"></script>
     
 </body>
