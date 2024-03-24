@@ -67,24 +67,21 @@
 
         <fieldset>
             <!-- <legend>Find your chart</legend> -->
-            <div class="my-charts-search"></div>
-
             <form class="search">
-                <input class="search-input" oninput="onMyChartsFilter()" type="search" placeholder="Search...">
-                <button type="reset" onclick="onClear()">Clear</button>
+                <input class="search-input btn" oninput="onMyChartsFilter()" type="search" placeholder="Search...">
             </form>
             
-            <div class="sort-by">
-                <select onchange="onSetSortBy()">
-                    <option value="">Select Sorting</option>
-                    <option value="title">By title</option>
-                    <option value="time">By creation date</option>
-                </select>
-                <label>
-                    <span>Descending</span>
-                    <input class="sort-desc" type="checkbox" oninput="onSetSortBy()" />
-                </label>
-            </div>
+            <select class="sort-by btn" onchange="onSetSortBy()">
+                <option value="">Select Sorting</option>
+                <option value="title">By title</option>
+                <option value="time">By creation date</option>
+            </select>
+
+            <label class="sort-direction">
+                <span class="btn sort-dir-btn">Descending</span>
+                <input class="sort-desc" type="checkbox" oninput="onSetSortBy()" />
+            </label>
+            
         </fieldset> 
 
         <table>

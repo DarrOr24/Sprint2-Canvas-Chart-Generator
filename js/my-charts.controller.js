@@ -38,8 +38,8 @@ function onOpenSavedChart(idx){
 }
 
 function onSetSortBy() {
-    const elSortBy = document.querySelector('.sort-by select')
-    const elDir = document.querySelector('.sort-by input')
+    const elSortBy = document.querySelector('.sort-by')
+    const elDir = document.querySelector('.sort-direction input')
 
     const sortBy = elSortBy.value
     const dir = elDir.checked ? -1 : 1

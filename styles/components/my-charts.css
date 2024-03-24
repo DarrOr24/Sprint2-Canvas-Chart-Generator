@@ -8,6 +8,7 @@
     border-inline-start: 1px solid #ccc;
 
     min-width: 30em;
+    min-height: 80vh;
     padding: 20px;
     opacity: 0;
     z-index: 3;
@@ -34,3 +35,27 @@ body.my-charts-open .my-charts-box {
     padding: 0;
 }
 
+.my-charts-box fieldset {
+    display: grid;
+    grid-template-areas: "sort-by sort-dir"
+                         "search sort-dir";
+    row-gap: 0.625em;
+
+}
+
+.sort-by, .search-input, .sort-dir-btn {
+    padding: 0.175em;
+}
+
+.search {
+    grid-area: search;
+}
+
+.search-input, .sort-by {
+    width: 15em;
+}
+
+.sort-direction {
+    grid-area: sort-dir;
+    place-self: center;
+}
