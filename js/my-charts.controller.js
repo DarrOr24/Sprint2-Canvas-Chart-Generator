@@ -5,17 +5,24 @@ function onMyCharts(){
     const myChartsArr = getMyCharts()
 
     if(myChartsArr.length === 0) {
-        document.querySelector('.my-charts').innerHTML = `No saved charts` 
-    }
+        document.querySelector('.my-charts').innerHTML = `No saved charts`
+        return 
+    } 
     
-    else {var strHtmls = myChartsArr.map((chart, idx) => 
+    renderMyCharts(myChartsArr)
+    
+}
+
+function renderMyCharts(myChartsArr){
+
+    var strHtmls = myChartsArr.map((chart, idx) => 
         `<tr>
             <td class="saved-chart-icon btn" onclick="onOpenSavedChart(${idx})">📊</td>
             <td class="saved-chart-title" onclick="onOpenSavedChart(${idx})">${chart.title}</td>
             <td class="chart-creation-time" > ${chart.creationTime.date}\t${chart.creationTime.time}</td>
         </tr>`)
-        document.querySelector('.my-charts').innerHTML = strHtmls.join('')
-    }  
+
+        document.querySelector('.my-charts').innerHTML = strHtmls.join('') 
 }
 
 
@@ -34,8 +41,6 @@ function onOpenSavedChart(idx){
 }
 
 function onSetSortBy() {
-    // const myChartsArr = getMyCharts()
-    
     const elSortBy = document.querySelector('.sort-by select')
     const elDir = document.querySelector('.sort-by input')
 
