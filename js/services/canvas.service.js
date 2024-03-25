@@ -20,10 +20,6 @@ function drawChart(){
     document.querySelector('.chart-title').innerText = title
 
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
-    
-   
-
-    console.log(totalVal)
 
     switch(theme){
         default:
