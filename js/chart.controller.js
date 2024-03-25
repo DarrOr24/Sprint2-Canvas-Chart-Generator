@@ -15,6 +15,10 @@ function onInit() {
 
 function onReset(){
     gTermCount = 2
+
+    const elAllChartTypes = document.querySelectorAll('.chart-type')
+    elAllChartTypes.forEach(chart => chart.classList.remove('clicked'))
+    
     gChart = _createChart()
     renderEditor()
 }
