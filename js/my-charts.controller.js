@@ -30,12 +30,26 @@ function onCloseMyCharts(){
 function onOpenSavedChart(idx){
     const myChartsArr = getMyCharts()
     gChart = myChartsArr[idx]
-
+    
     document.body.classList.remove('my-charts-open')
 
     clearCanvas()
     drawChart()
     renderEditor()
+    updateChartTypeEditor() 
+}
+
+function updateChartTypeEditor(){
+    const {theme} = gChart
+    const elAllChartTypes = document.querySelectorAll('.chart-type')
+    elAllChartTypes.forEach(chart => chart.classList.remove('clicked'))
+    console.log(theme)
+
+    if(theme === 'rect') var elChartType = document.querySelector('.chart-type-rect')
+        
+    else if(theme === 'circle') elChartType = document.querySelector('.chart-type-circle')
+    
+    elChartType.classList.add('clicked')
 }
 
 function onSetSortBy() {
