@@ -3,6 +3,7 @@
 }
 
 .chart-samples-layout {
+    /* margin-block-start: 1.5em; */
     display: grid;
     grid-auto-flow: column;
 }
@@ -41,18 +42,19 @@
 
 .editor-header {
     grid-area: header;
+    align-items: center;
 }
 
 .terms {
-    margin-block-start: 1em;
+    margin-block-start: 0.5em;
     grid-area: terms;
     border: 2px solid lightgray;
     padding: 0.5em;
-    gap: 0.1em;
+    gap: 0.2em;
+    align-items: center;
 }
 
 .action-btns {
-    margin-block-start: 1em;
     grid-area: action-btns;
     gap: 0.2em;
 }
@@ -66,38 +68,50 @@
     width:max-content;
 }
 
-.submit, .name-input {
-    grid-column: 2;
+.submit {
+    justify-self: center;
 }
 
-.reset, .draw, .val-units {
-    grid-column: 3;
+.val-units {
+    
+    grid-column:7;
     justify-self: end;
 }
 
-.name-label, .add-term, .clear, .title-label{
+.name-label, .title-label, .draw, .clear{
     grid-column: 1;
-    width: 20px;
 }
 
-.name-input{
-    grid-column:2;
+.draw, .clear {
+    width: 8.5em;
+}
+
+.add-term, .reset {
+    grid-column: 3;
+    width: 6.5em;
+    justify-self: end;
 }
 
 label {
-    justify-self: start;
+    /* justify-self: end; */
+    /* align-self: center; */
 }
+
+.title-label {
+    justify-self: center;
+}
+
 
 .remove-term-btn {
-    grid-column: 2;
+    grid-column: 7;
     justify-self: end;
+    /* align-self: center; */
 }
 
 
 
-.clear, .draw{
-    grid-row:2;
-}
+
+
 
 
 

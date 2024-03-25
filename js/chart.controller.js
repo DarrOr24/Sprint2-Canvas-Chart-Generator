@@ -42,13 +42,12 @@ function renderEditor(){
         <input class="name-input" type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="5">
        
         <label class="value-label" for="value">Value:</label>
-        <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
+        <input class="value-input" type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
 
         <label class="color-label" for="color">Color:</label>
         <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 25px;"/>
 
         <button class="btn remove-term-btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
-        <br>
         `)
 
 
