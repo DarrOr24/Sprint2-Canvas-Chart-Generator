@@ -1,5 +1,18 @@
-.chart-samples img {
-    height: 5em;
-    place-self: center;
+.chart-samples div{
+    display:grid;
 }
 
+.chart-samples img {
+    height: 5em;
+    place-self: center; 
+}
+
+.chart-samples img:hover {
+    border: 2px solid palevioletred;
+    cursor: pointer;
+}
+
+.clicked {
+    border-color: palevioletred;
+    border: 2px solid palevioletred;
+}

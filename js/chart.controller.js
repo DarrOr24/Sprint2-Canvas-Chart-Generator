@@ -21,8 +21,8 @@ function onReset(){
 
 function renderChartTypes() {
     const strHtmls = `
-    <img src="img/bar-chart.jpg" alt="" onclick = "onChartSelect('rect')" class="rectChart">
-    <img src="img/circle-chart.jpg" alt="" onclick = "onChartSelect('circle')" class="circleChart">`
+    <img src="img/bar-chart.jpg" alt="" onclick = "onChartSelect(this,'rect')" class="chart-type">
+    <img src="img/circle-chart.jpg" alt="" onclick = "onChartSelect(this,'circle')" class="chart-type">`
     
     document.querySelector('.chart-samples').innerHTML = strHtmls
 }
@@ -50,8 +50,13 @@ function renderEditor(){
     document.querySelector('.terms').innerHTML = strHtmls.join('')
 }
 
-function onChartSelect(chartType){
+function onChartSelect(elChart, chartType){
     updateChartType(chartType)
+
+    const elAllChartTypes = document.querySelectorAll('.chart-type')
+    elAllChartTypes.forEach(chart => chart.classList.remove('clicked'))
+
+    elChart.classList.add('clicked')
 }
 
 function onSubmit(ev){
