@@ -112,61 +112,84 @@ function drawCircleUnits(terms){
 
 }
 
-function onMouseMove(ev) {
-	const { offsetX, offsetY, clientX, clientY } = ev
+function mouseMove(offsetX, offsetY, clientX, clientY){
     const {terms, valueType, theme} = gChart
 
-    if(valueType === 'units' && theme === 'rect'){
-        const term = terms.find(term => {
-            var { x, y, value } = term
-    
-            
-    
-            return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-                    offsetY >= y && offsetY <= y + value)
-        })
-    
-        if(term){
-            openModal(term.name, term.value, clientX, clientY)
-        } else {
-            closeModal()
-        }
-    }
+    switch(theme){
+        case 'rect':
+            if(valueType === 'units') mouseMoveRectUnits(terms,offsetX, offsetY, clientX, clientY)
+            if(valueType === 'percent') mouseMoveRectPerc(terms,offsetX, offsetY, clientX, clientY)
+            break
 
-    if(valueType === 'percent' && theme === 'rect'){
-        const term = terms.find(term => {
-            var { x, y, value } = term
-    
-            
-    
-            return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-                    offsetY >= y && offsetY <= y + value*3)
-        })
-    
-        if(term){
-            openModal(term.name, (term.value*100/term.totalVal), clientX, clientY)
-        } else {
-            closeModal()
-        }
+        case 'circle':
+            mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY)
+            break
     }
-    
-    
+}
+
+function mouseMoveRectUnits(terms,offsetX, offsetY, clientX, clientY){
+    const term = terms.find(term => {
+        var { x, y, value } = term
+
+        return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
+                offsetY >= y && offsetY <= y + value)
+    })
+
+    if(term){
+        openModal(term.name, term.value, clientX, clientY)
+    } else {
+        closeModal()
+    }
+}
+
+function mouseMoveRectPerc(terms,offsetX, offsetY, clientX, clientY){
+    const term = terms.find(term => {
+        var { x, y, value } = term
+
+        return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
+                offsetY >= y && offsetY <= y + value*3)
+    })
+
+    if(term){
+        openModal(term.name, (term.value*100/term.totalVal), clientX, clientY)
+    } else {
+        closeModal()
+    }
+}
+function mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY){
+    const {valueType} = gChart
+
+    const term = terms.find(term => {
+        var { x, y, value, radius } = term
+        
+        return (offsetX >= x-radius  && offsetX <= x + radius &&
+                offsetY >= y - radius && offsetY <= y + radius)
+    })
+
+    if(term){
+        if(valueType === 'units') openModal(term.name, term.value, clientX, clientY)
+        if(valueType === 'percent') openModal(term.name, term.radius, clientX, clientY)
+    } else {
+        closeModal()
+    }
 }
 
 function openModal(termName, termValue, x, y) {
-    var {valueType} = gChart
+    
+    var {valueType, theme} = gChart
     if(valueType === 'percent'){
         valueType = `%`
         termValue = termValue.toFixed(2)
     } 
-    
-	const elModal = document.querySelector('.modal')
+
+    const elModal = document.querySelector('.modal')
 
 	elModal.innerText = `${termName}: ${termValue}${valueType}`
 	elModal.style.opacity = 1
 	elModal.style.top = y + 'px'
 	elModal.style.left = x + 'px'
 }
+
 
 function closeModal() {
 	document.querySelector('.modal').style.opacity = 0

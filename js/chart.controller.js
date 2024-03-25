@@ -100,6 +100,11 @@ function updateFormData(){ //Same as submit
     insertInputData(formDataObj)
 }
 
+function onMouseMove(ev) {
+	const { offsetX, offsetY, clientX, clientY } = ev
+    mouseMove(offsetX, offsetY, clientX, clientY)
+}
+
 function onDownloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg') 
     elLink.href = imgContent
