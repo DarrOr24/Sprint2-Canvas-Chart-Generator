@@ -20,6 +20,7 @@ function drawChart(){
     document.querySelector('.chart-title').innerText = title
 
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
+    terms.forEach(term => term.totalVal = totalVal)
 
     switch(theme){
         default:
@@ -28,13 +29,13 @@ function drawChart(){
 
         case 'rect':
             if(valueType === 'units') drawRectUnits(terms)
-            if(valueType === 'percent') drawRectPercent(terms, totalVal)
+            if(valueType === 'percent') drawRectPercent(terms)
             break
 
         case 'circle':
-            const numOfTerms = terms.length
-            if(valueType === 'units') drawCircleUnits(terms, numOfTerms)
-            if(valueType === 'percent') drawCirclePercent(terms, numOfTerms, totalVal)
+            
+            if(valueType === 'units') drawCircleUnits(terms)
+            if(valueType === 'percent') drawCirclePercent(terms)
             break
     }
 }
@@ -54,17 +55,19 @@ function drawRectUnits(terms){
     })
 }
 
-function drawRectPercent(terms, totalVal){
+function drawRectPercent(terms){
     terms.forEach((term, idx) => {
         term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
-        term.y = gElCanvas.height - (term.value*100/totalVal)*3
+        term.y = gElCanvas.height - (term.value*100/term.totalVal)*3
 
         gCtx.fillStyle = term.color
         gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value*3)
     })
 }
 
-function drawCirclePercent(terms, numOfTerms, totalVal){
+function drawCirclePercent(terms){
+    const numOfTerms = terms.length
+
     terms.forEach((term, idx) => {
         gCtx.beginPath()
 
@@ -74,7 +77,7 @@ function drawCirclePercent(terms, numOfTerms, totalVal){
         if(numOfTerms===4) term.x = (idx + 1) * gElCanvas.width/5
         
         term.y = gElCanvas.height/2
-        term.radius = (term.value)*100/totalVal
+        term.radius = (term.value)*100/term.totalVal
 
         gCtx.arc(term.x, term.y, term.radius, 0, 2 * Math.PI) // draws a circle
       
@@ -83,7 +86,8 @@ function drawCirclePercent(terms, numOfTerms, totalVal){
     })
 }
 
-function drawCircleUnits(terms, numOfTerms){
+function drawCircleUnits(terms){
+    const numOfTerms = terms.length
     terms.forEach((term, idx) => {
         if(term.value > gElCanvas.height){
             alert(`Maximum unit size is ${gElCanvas.height}`)
@@ -110,26 +114,55 @@ function drawCircleUnits(terms, numOfTerms){
 
 function onMouseMove(ev) {
 	const { offsetX, offsetY, clientX, clientY } = ev
-    const {terms} = gChart
+    const {terms, valueType, theme} = gChart
+
+    if(valueType === 'units' && theme === 'rect'){
+        const term = terms.find(term => {
+            var { x, y, value } = term
     
-    const term = terms.find(term => {
-        var { x, y, value } = term
-
-        return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-                offsetY >= y && offsetY <= y + value)
-    })
-
-    if(term){
-        openModal(term.name, term.value, clientX, clientY)
-    } else {
-        closeModal()
+            
+    
+            return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
+                    offsetY >= y && offsetY <= y + value)
+        })
+    
+        if(term){
+            openModal(term.name, term.value, clientX, clientY)
+        } else {
+            closeModal()
+        }
     }
+
+    if(valueType === 'percent' && theme === 'rect'){
+        const term = terms.find(term => {
+            var { x, y, value } = term
+    
+            
+    
+            return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
+                    offsetY >= y && offsetY <= y + value*3)
+        })
+    
+        if(term){
+            openModal(term.name, (term.value*100/term.totalVal), clientX, clientY)
+        } else {
+            closeModal()
+        }
+    }
+    
+    
 }
 
 function openModal(termName, termValue, x, y) {
+    var {valueType} = gChart
+    if(valueType === 'percent'){
+        valueType = `%`
+        termValue = termValue.toFixed(2)
+    } 
+    
 	const elModal = document.querySelector('.modal')
 
-	elModal.innerText = `${termName}: ${termValue}`
+	elModal.innerText = `${termName}: ${termValue}${valueType}`
 	elModal.style.opacity = 1
 	elModal.style.top = y + 'px'
 	elModal.style.left = x + 'px'
