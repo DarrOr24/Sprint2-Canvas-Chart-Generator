@@ -36,7 +36,6 @@ function drawChart(){
     }
 }
 
-
 function drawRectChart(terms, totalVal){
     terms.forEach((term, idx) => {
         term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
