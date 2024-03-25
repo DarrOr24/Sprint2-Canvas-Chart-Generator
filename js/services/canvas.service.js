@@ -16,17 +16,62 @@ function clearCanvas(){
 }
 
 function drawChart(){
-    const {terms, title} = gChart
+    const {theme, terms, title} = gChart
     document.querySelector('.chart-title').innerText = title
-    
-    terms.forEach((term, idx) => {
 
+    const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
+    
+   
+
+    console.log(totalVal)
+
+    switch(theme){
+        default:
+            alert('Select chart type')
+            break
+
+        case 'rect':
+            drawRectChart(terms, totalVal)
+            break
+
+        case 'circle':
+            drawCircleChart(terms, totalVal)
+            break
+    }
+}
+
+
+function drawRectChart(terms, totalVal){
+    terms.forEach((term, idx) => {
         term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
         term.y = gElCanvas.height - term.value
 
         gCtx.fillStyle = term.color
         gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value)
     })
+}
+
+function drawCircleChart(terms, totalVal){
+
+    const numOfTerms = terms.length
+    
+    terms.forEach((term, idx) => {
+        gCtx.beginPath()
+
+        if(numOfTerms===1) term.x = (idx + 1) * gElCanvas.width/2
+        if(numOfTerms===2) term.x = (idx + 1) * gElCanvas.width/3
+        if(numOfTerms===3) term.x = (idx + 1) * gElCanvas.width/4
+        if(numOfTerms===4) term.x = (idx + 1) * gElCanvas.width/5
+        
+        term.y = gElCanvas.height/2
+        term.radius = (term.value)*100/totalVal
+
+        gCtx.arc(term.x, term.y, term.radius, 0, 2 * Math.PI) // draws a circle
+      
+	    gCtx.fillStyle = term.color
+	    gCtx.fill()
+    })
+
 }
 
 function onMouseMove(ev) {
