@@ -37,12 +37,34 @@ function drawChart(){
 }
 
 function drawRectChart(terms, totalVal){
+    const {valueType} = gChart
+    
+    if(valueType === 'units') drawRectUnits(terms)
+    if(valueType === 'percent') drawRectPercent(terms, totalVal)
+}
+
+function drawRectUnits(terms){
     terms.forEach((term, idx) => {
+        if(term.value > gElCanvas.height){
+            alert(`Maximum unit size is ${gElCanvas.height}`)
+            return
+        }
+
         term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
         term.y = gElCanvas.height - term.value
 
         gCtx.fillStyle = term.color
         gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value)
+    })
+}
+
+function drawRectPercent(terms, totalVal){
+    terms.forEach((term, idx) => {
+        term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
+        term.y = gElCanvas.height - (term.value*100/totalVal)*3
+
+        gCtx.fillStyle = term.color
+        gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value*3)
     })
 }
 

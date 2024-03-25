@@ -11,8 +11,9 @@ function updateChartType(chartType){
 
 function insertInputData(formDataObj){
 
-    const {title, name1, value1, color1, name2, value2, color2} = formDataObj
+    const {title, valueType, name1, value1, color1, name2, value2, color2} = formDataObj
     gChart.title = title
+    gChart.valueType = valueType
     const names = [name1, name2]
     const values = [value1, value2]
     const colors = [color1, color2]
@@ -75,8 +76,8 @@ function _createTerm() {
 function _createChart() {
     return {
         theme: '',
-        title: 'Work life Balance',
-        valueType: 'percent/value',
+        title: 'Title',
+        valueType: 'percent',
         terms: [_createTerm(),_createTerm()]
     }
 }

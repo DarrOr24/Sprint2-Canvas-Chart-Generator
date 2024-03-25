@@ -68,7 +68,7 @@ function onSubmit(ev){
 
     const formData = new FormData(ev.target)
     const formDataObj = Object.fromEntries(formData)
-
+    
     insertInputData(formDataObj)
 }
 
