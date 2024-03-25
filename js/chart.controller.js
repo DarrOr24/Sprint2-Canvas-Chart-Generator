@@ -36,13 +36,16 @@ function renderEditor(){
                     
         <label for="value">Value:</label>
         <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
-                
+      
         <label for="color">Color:</label>
         <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 25px;"/>
 
         <button class="btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
         <br>
         `)
+
+
+        
 
     document.querySelector('.terms').innerHTML = strHtmls.join('')
 }

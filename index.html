@@ -31,6 +31,11 @@
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" value="Work-Life Balance" size="20">
 
+                    <select name="valueType" class="val-units">
+                        <option  value="percent">%</option>
+                        <option  value="units">units</option>
+                    </select>
+
                     <div class="terms"></div>
         
                     <div class="action-btns">
@@ -46,7 +51,7 @@
         </div>
             
         <div class="modal"></div>
-        
+
         <section class="chart-display">
             <h2 class="chart-title"></h2>
             <canvas width="350" height="350" onmousemove="onMouseMove(event)"></canvas>
