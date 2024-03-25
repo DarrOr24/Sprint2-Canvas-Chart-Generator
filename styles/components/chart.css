@@ -1,9 +1,11 @@
 .chart-display{
     position: relative;
+    place-self: center;
 }
 
 canvas {
     border: 1px solid lightgray;
+    
 }
 
 .modal {

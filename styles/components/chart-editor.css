@@ -1,3 +1,5 @@
 .chart-samples img {
     height: 5em;
+    place-self: center;
 }
+
