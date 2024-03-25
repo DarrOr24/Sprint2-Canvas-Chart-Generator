@@ -19,33 +19,26 @@
     </header>
     
     <div class="main-container-layout">
-        <div class="chart-editor-layout chart-editor">
+        <div class="chart-editor">
             <section class="chart-types">
                 <h2>Select chart type</h2>
                 <div class="chart-samples chart-samples-layout"></div>
             </section>
             
-            <section>
-                <h2>Insert chart values</h2>
-                <form id="chart-values" onsubmit="onSubmit(event)">
+            <section class="chart-values-editor">
+                <h2 class="chart-values-title">Insert chart values</h2>
+                <form class="chart-form" id="chart-values" onsubmit="onSubmit(event)">
                     <div class="editor-header"></div>
-                    <!-- <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" value="Title" size="20">
-
-                    <select name="valueType" class="val-units">
-                        <option  value="percent">%</option>
-                        <option  value="units">units</option>
-                    </select> -->
-
+                    
                     <div class="terms"></div>
         
                     <div class="action-btns">
-                        <button class="btn" type="submit" onclick="onAddTerm()">Add term</button>
-                        <button class="btn">Submit</button>
-                        <button class="btn" type="reset" onclick="onReset()">Reset</button>   
+                        <button class="btn add-term" type="submit" onclick="onAddTerm()">Add term</button>
+                        <button class="btn submit">Submit</button>
+                        <button class="btn reset" type="reset" onclick="onReset()">Reset</button>   
                         <br>
-                        <button class="btn" type="button" onclick="onClearChart()">Clear chart</button> 
-                        <button class="btn" type="button" onclick="onDrawChart()">Draw chart</button> 
+                        <button class="btn clear" type="button" onclick="onClearChart()">Clear chart</button> 
+                        <button class="btn draw" type="button" onclick="onDrawChart()">Draw chart</button> 
                     </div>
                     
                 </form>

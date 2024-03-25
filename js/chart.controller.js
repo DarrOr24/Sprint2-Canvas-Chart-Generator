@@ -38,16 +38,16 @@ function renderEditor(){
     renderChartEditorHeader()
 
     var strHtmls = terms.map((term,idx) => `
-        <label for="name">Term${idx+1}:</label>
-        <input type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="5">
-                    
-        <label for="value">Value:</label>
+        <label class="name-label" for="name">Term${idx+1}:</label>
+        <input class="name-input" type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="5">
+       
+        <label class="value-label" for="value">Value:</label>
         <input type="number" id="value" name="value${idx+1}" value="${term.value}" style="width: 50px;">
-      
-        <label for="color">Color:</label>
+
+        <label class="color-label" for="color">Color:</label>
         <input type="color" id="color" name="color${idx+1}" value="${term.color}" style="width: 25px;"/>
 
-        <button class="btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
+        <button class="btn remove-term-btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
         <br>
         `)
 
@@ -71,7 +71,7 @@ function renderChartEditorHeader() {
     }
 
     var strHtmls = `
-        <label for="title">Title:</label>
+        <label class="title-label" for="title">Title:</label>
         <input type="text" id="title" name="title" value="${title}" size="20">
 
         <select name="valueType" class="val-units">

@@ -1,3 +1,13 @@
+.chart-editor{
+    display: grid;
+}
+
+.chart-samples-layout {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+
 .chart-samples div{
     display:grid;
 }
@@ -16,3 +26,82 @@
     border-color: palevioletred;
     border: 2px solid palevioletred;
 }
+
+.chart-values-editor {
+    display: grid;
+}
+
+.chart-form{
+    display:grid;
+    row-gap: 0.2em;
+    grid-template-areas: "header"
+                        "terms"
+                        "action-btns";
+}
+
+.editor-header {
+    grid-area: header;
+}
+
+.terms {
+    margin-block-start: 1em;
+    grid-area: terms;
+    border: 2px solid lightgray;
+    padding: 0.5em;
+    gap: 0.1em;
+}
+
+.action-btns {
+    margin-block-start: 1em;
+    grid-area: action-btns;
+    gap: 0.2em;
+}
+
+.editor-header, .terms, .action-btns{
+    text-transform: uppercase;
+    display: grid;
+}
+
+.val-units{
+    width:max-content;
+}
+
+.submit, .name-input {
+    grid-column: 2;
+}
+
+.reset, .draw, .val-units {
+    grid-column: 3;
+    justify-self: end;
+}
+
+.name-label, .add-term, .clear, .title-label{
+    grid-column: 1;
+    width: 20px;
+}
+
+.name-input{
+    grid-column:2;
+}
+
+label {
+    justify-self: start;
+}
+
+.remove-term-btn {
+    grid-column: 2;
+    justify-self: end;
+}
+
+
+
+.clear, .draw{
+    grid-row:2;
+}
+
+
+
+
+
+
+

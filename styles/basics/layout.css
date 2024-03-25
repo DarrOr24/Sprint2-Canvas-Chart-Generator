@@ -29,11 +29,3 @@
     padding: 1em
 }
 
-.chart-editor-layout{
-    display: grid;
-}
-
-.chart-samples-layout {
-    display: grid;
-    grid-auto-flow: column;
-}
