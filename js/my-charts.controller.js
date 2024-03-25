@@ -35,6 +35,7 @@ function onOpenSavedChart(idx){
 
     clearCanvas()
     drawChart()
+    renderEditor()
 }
 
 function onSetSortBy() {
