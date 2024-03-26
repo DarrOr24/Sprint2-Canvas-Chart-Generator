@@ -34,9 +34,13 @@ function drawChart(){
             break
 
         case 'circle':
-            
             if(valueType === 'units') drawCircleUnits(terms)
             if(valueType === 'percent') drawCirclePercent(terms)
+            break
+
+        case 'pie':
+            if(valueType === 'units') drawPieUnits(terms)
+            if(valueType === 'percent') drawPiePercent(terms)
             break
     }
 }
@@ -111,6 +115,35 @@ function drawCircleUnits(terms){
 	    gCtx.fill()
     })
 
+}
+
+function drawPiePercent(terms){
+    // const numOfTerms = terms.length
+    console.log('hi')
+
+    terms.forEach((term, idx) => {
+        gCtx.beginPath()
+        term.totalVal = 300;
+        
+
+        term.x = gElCanvas.width/2
+        term.y = gElCanvas.height/2
+        term.radius = 100
+        const ratio = term.value/term.totalVal
+        console.log(term.value)
+        console.log('total',term.totalVal)
+        console.log(ratio)
+        term.angle = ratio*2 * Math.PI
+        console.log(ratio)
+        
+
+        const startAngle = term.angle*idx
+
+        gCtx.arc(term.x, term.y, term.radius, startAngle, ratio*Math.PI) // draws a circle
+      
+	    gCtx.StrokeStyle = term.color
+	    gCtx.stroke()
+    })
 }
 
 function mouseMove(offsetX, offsetY, clientX, clientY){
@@ -190,7 +223,6 @@ function openModal(termName, termValue, x, y) {
 	elModal.style.top = y + 'px'
 	elModal.style.left = x + 'px'
 }
-
 
 function closeModal() {
 	document.querySelector('.modal').style.opacity = 0
