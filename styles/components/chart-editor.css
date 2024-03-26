@@ -18,13 +18,13 @@
 
 .chart-samples {
     display: grid;
-    align-self: start;
+    align-self: end;
     grid-auto-flow: column;
 }
 
-.chart-samples div{
+/* .chart-samples div{
     display:grid;
-}
+} */
 
 .chart-samples img {
     height: 5em;
