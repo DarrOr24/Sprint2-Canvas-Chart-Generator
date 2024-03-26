@@ -28,9 +28,6 @@
     border: 2px solid palevioletred;
 }
 
-.chart-values-editor {
-    display: grid;
-}
 
 .chart-form{
     display:grid;
@@ -49,7 +46,7 @@
     margin-block-start: 0.5em;
     grid-area: terms;
     border: 2px solid lightgray;
-    padding: 0.5em;
+    padding-block: 0.5em;
     gap: 0.2em;
     align-items: center;
 }
@@ -66,16 +63,12 @@
 
 .val-units{
     width:max-content;
+    grid-column:7;
+    justify-self: end;
 }
 
 .submit {
     justify-self: center;
-}
-
-.val-units {
-    
-    grid-column:7;
-    justify-self: end;
 }
 
 .name-label, .title-label, .draw, .clear{
@@ -92,19 +85,22 @@
     justify-self: end;
 }
 
+.name-label, .value-label, .color-label {
+    justify-self: center;
+}
+
 label {
     /* justify-self: end; */
-    /* align-self: center; */
+    align-self: center;
 }
 
 .title-label {
     justify-self: center;
 }
 
-
 .remove-term-btn {
     grid-column: 7;
-    justify-self: end;
+    justify-self: center;
     /* align-self: center; */
 }
 
