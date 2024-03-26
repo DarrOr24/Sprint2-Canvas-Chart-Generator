@@ -40,6 +40,11 @@
                         
                 </div>
             </form>
+
+            <section class="background-selection">
+                <h2 class="backgrounds-title">Select background</h2>
+                <div class="backgrounds"></div>
+            </section>
         </div>
             
         <div class="modal"></div>
@@ -50,16 +55,22 @@
             <div class="canvas-btns">
                 <a href="#" class="btn download-btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download</a>
                 <button onclick="onSave()" class="btn save-btn">Save</button> 
-            </div>
-             
+            </div> 
         </section>
 
     </div>
 
-    <section class="gallery">
-        <h2>Chart Gallery</h2>
-        <div class="gallery-charts"></div>
-    </section>
+    <!-- <section class="gallery-and-backgrounds main-container-layout">
+        <section class="background-selection">
+            <h2 class="backgrounds-title">Select background</h2>
+            <div class="backgrounds"></div>
+        </section>
+
+        <section class="gallery"></section>
+
+    </section> -->
+
+    
 
     <div class="my-charts-box">
         <button class="my-charts-btn btn" onclick="onCloseMyCharts()">X</button>
@@ -95,7 +106,7 @@
     <script src="js/services/my-charts.service.js"></script>
     <script src="js/services/chart.service.js"></script>
 
-    <script src="js/gallery.controller.js"></script>
+    <script src="js/backgrounds.controller.js"></script>
     <script src="js/my-charts.controller.js"></script>
     <script src="js/chart.controller.js"></script>
     

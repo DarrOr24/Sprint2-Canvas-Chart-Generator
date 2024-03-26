@@ -3,6 +3,7 @@
     place-self: end;
     border: 1px solid lightgray;
     padding: 0.7em;
+    align-self: start;
 }
 
 canvas {

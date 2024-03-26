@@ -1,9 +1,0 @@
-.gallery-charts {
-    display: grid;
-    grid-auto-flow: column;
-    place-items: center;
-}
-
-.gallery-chart {
-    height: 10em;
-}
