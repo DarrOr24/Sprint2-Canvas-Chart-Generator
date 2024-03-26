@@ -12,14 +12,11 @@
     color: gray;
     cursor: pointer;
     z-index: 1;
-
-    
 }
 
 .btn:hover {
     color: #d87093;
     border-color: palevioletred;
-
 }
 
 /* rounded */

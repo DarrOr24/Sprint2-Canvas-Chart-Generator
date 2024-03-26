@@ -1,10 +1,10 @@
 .main-layout {
     display: grid;
-    /* grid-template-columns: 20px 1fr 20px; */
-    grid-template-columns:
+    grid-template-columns: 20px 1fr 20px;
+    /* grid-template-columns:
       minmax(50px, 1fr)
       minmax(auto, 1060px)
-      minmax(50px, 1fr);
+      minmax(50px, 1fr); */
 }
 
 .main-layout > *:not(.full) {
@@ -23,14 +23,10 @@
 
 .main-container-layout{
     display: grid;
-    height: 90vh;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 3fr 1fr;
-    /* row-gap: 0.4em; */
-    align-content: start;
-    justify-content: center;
-    /* justify-items: center; */
-    grid-template-areas: "chart-editor         chart-display"
-                         "background-selector  gallery";
+    
+    grid-template-areas: "chart-display"
+                         "chart-editor "        
+                         "background-selector"
+                         "gallery";
 }
 

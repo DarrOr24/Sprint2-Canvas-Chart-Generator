@@ -1,18 +1,19 @@
 .chart-editor{
     grid-area: chart-editor;
     display: grid;
-    justify-self: center;
-    padding-block-end: 1em;
+    padding-block-end: 0.7em;
 }
 
 .chart-types {
     display:grid;
+    align-self: start;
     /* row-gap: 0.7em; */
 }
 
 .chart-types h2, .form-title{
     background-color: var(--primary--2);
     height: max-content;
+    margin-block: 0.5em;
 }
 
 .chart-samples {

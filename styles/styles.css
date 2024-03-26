@@ -19,6 +19,5 @@
 @import url(components/my-charts.css);
 @import url(components/gallery.css);
 
-
 /* media queries */
-/* @import url(setup/mq.css); */
+@import url(setup/mq.css);
