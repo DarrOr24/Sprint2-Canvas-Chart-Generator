@@ -119,6 +119,7 @@ function drawCircleUnits(terms){
 function drawPie(terms){
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
     terms.forEach(term => term.totalVal = totalVal)
+    const radius = 100
    
     terms.forEach((term, idx, arr) => {
         gCtx.beginPath()
@@ -131,25 +132,76 @@ function drawPie(terms){
         term.angle = ratio*360
        
         var startAngle = 0
+        
 
         for(var i=1; i<=idx; i++){
             startAngle += arr[idx-i].angle
         }
 
-        drawArcDeg(startAngle, term.angle, term.color)
+        const start = startAngle*Math.PI/180
+        const finish = (startAngle+term.angle)*Math.PI/180
+        const angleRad = [start, finish]
+
+        const lines = angleRad.map(angle => {
+            const xEnd= radius*Math.cos(angle) + term.x
+            const yEnd= radius*Math.sin(angle) + term.y
+            const line = {
+                x: term.x,
+                y: term.y,
+                xEnd: xEnd,
+                yEnd: yEnd,
+                color: term.color
+            }
+            // drawLine(line)
+            return line
+        })
+
+        drawTriangle(lines)
+
+        drawArcDeg(term.x, term.y,radius, startAngle, term.angle, term.color)
     })
 }
 
 
-function drawArcDeg(startAngle, angle, color){
+function drawArcDeg(x, y, radius, startAngle, angle, color){
     gCtx.beginPath()
     angle = angle*Math.PI/180
     startAngle = startAngle*Math.PI/180
     
-    gCtx.arc(175, 175, 100, startAngle, angle+startAngle) // draws a circle
+    gCtx.arc(x, y, radius, startAngle, angle+startAngle) // draws a circle
         
 	gCtx.strokeStyle = color
 	gCtx.stroke()
+    // gCtx.fillStyle = color
+	// gCtx.fill()
+}
+
+function drawLine(line) {
+    const {x, y, xEnd, yEnd, color} = line
+    gCtx.beginPath()
+	gCtx.moveTo(x, y)
+	gCtx.lineTo(xEnd, yEnd)
+    
+	// gCtx.lineWidth = 3
+	gCtx.strokeStyle = color
+	gCtx.stroke()
+}
+
+function drawTriangle(lines){
+    drawLine(lines[0])
+    // drawLine(lines[1])
+    const closingLine = {
+        x: lines[0].xEnd,
+        y: lines[0].yEnd,
+        xEnd: lines[1].xEnd,
+        yEnd: lines[1].yEnd,
+        color: lines[0].color
+    }
+    drawLine(closingLine)
+    gCtx.closePath()
+    gCtx.fillStyle = lines[0].color
+	gCtx.fill()
+
 }
 
 function mouseMove(offsetX, offsetY, clientX, clientY){
