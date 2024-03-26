@@ -7,6 +7,7 @@ function onInit() {
     renderChartTypes()
     renderEditor()
     renderBackgroundImgs()
+    MY_CHARTS.forEach(chart => chart.background = '')
     gElCanvas = document.querySelector('canvas')
 	gCtx = gElCanvas.getContext('2d')
 
