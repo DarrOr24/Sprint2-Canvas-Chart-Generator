@@ -118,32 +118,43 @@ function drawCircleUnits(terms){
 }
 
 function drawPiePercent(terms){
-    // const numOfTerms = terms.length
-    console.log('hi')
+    // const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
+    // terms.forEach(term => term.totalVal = totalVal)
+    
 
-    terms.forEach((term, idx) => {
+    terms.forEach((term, idx, arr) => {
         gCtx.beginPath()
-        term.totalVal = 300;
         
+        term.totalVal=360
 
         term.x = gElCanvas.width/2
         term.y = gElCanvas.height/2
-        term.radius = 100
-        const ratio = term.value/term.totalVal
-        console.log(term.value)
-        console.log('total',term.totalVal)
-        console.log(ratio)
-        term.angle = ratio*2 * Math.PI
-        console.log(ratio)
         
+        const ratio = term.value/term.totalVal
+        
+        term.angle = ratio*360
+       
+        var startAngle = 0
 
-        const startAngle = term.angle*idx
-
-        gCtx.arc(term.x, term.y, term.radius, startAngle, ratio*Math.PI) // draws a circle
-      
-	    gCtx.StrokeStyle = term.color
-	    gCtx.stroke()
+        for(var i=1; i<=idx; i++){
+            startAngle += arr[idx-1].angle
+        }
+        
+        drawArcDeg(startAngle, term.angle, term.color)
+        
     })
+}
+
+
+function drawArcDeg(startAngle, angle, color){
+    gCtx.beginPath()
+    angle = angle*Math.PI/180
+    startAngle = startAngle*Math.PI/180
+    
+    gCtx.arc(175, 175, 100, startAngle, angle+startAngle) // draws a circle
+        
+	gCtx.strokeStyle = color
+	gCtx.stroke()
 }
 
 function mouseMove(offsetX, offsetY, clientX, clientY){
