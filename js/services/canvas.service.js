@@ -118,15 +118,12 @@ function drawCircleUnits(terms){
 }
 
 function drawPiePercent(terms){
-    // const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
-    // terms.forEach(term => term.totalVal = totalVal)
-    
-
+    const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
+    terms.forEach(term => term.totalVal = totalVal)
+   
     terms.forEach((term, idx, arr) => {
         gCtx.beginPath()
         
-        term.totalVal=360
-
         term.x = gElCanvas.width/2
         term.y = gElCanvas.height/2
         
@@ -137,11 +134,10 @@ function drawPiePercent(terms){
         var startAngle = 0
 
         for(var i=1; i<=idx; i++){
-            startAngle += arr[idx-1].angle
+            startAngle += arr[idx-i].angle
         }
-        
+
         drawArcDeg(startAngle, term.angle, term.color)
-        
     })
 }
 
