@@ -1,0 +1,9 @@
+.gallery {
+    display:grid;
+}
+
+.gallery-title{
+    
+    margin-block: 0.25em;
+    background-color: var(--primary--2);
+}

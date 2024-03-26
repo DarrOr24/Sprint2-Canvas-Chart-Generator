@@ -1,9 +1,15 @@
 .chart-editor{
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
+    
     border: 1px solid lightgray;
     padding: 0.7em;
     height: 90vh;
+}
+
+.top-editor {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    height: 60vh;
 }
 
 .chart-types {

@@ -1,3 +1,8 @@
+.backgrounds-selection{
+    align-self: end;
+    height: 20vh;
+}
+
 .backgrounds {
     display: grid;
     grid-auto-flow: column;
