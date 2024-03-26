@@ -39,8 +39,7 @@ function drawChart(){
             break
 
         case 'pie':
-            if(valueType === 'units') drawPieUnits(terms)
-            if(valueType === 'percent') drawPiePercent(terms)
+            drawPie(terms)
             break
     }
 }
@@ -117,7 +116,7 @@ function drawCircleUnits(terms){
 
 }
 
-function drawPiePercent(terms){
+function drawPie(terms){
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
     terms.forEach(term => term.totalVal = totalVal)
    
