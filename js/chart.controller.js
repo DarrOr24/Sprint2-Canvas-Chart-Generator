@@ -1,7 +1,6 @@
 'use strict'
 
 function onInit() {
-    
     renderGallery()
 
     gTermCount = 2
@@ -16,6 +15,7 @@ function onInit() {
 
 function onReset(){
     gTermCount = 2
+    clearCanvas()
     
     const elAllChartTypes = document.querySelectorAll('.chart-type')
     elAllChartTypes.forEach(chart => chart.classList.remove('clicked'))
@@ -100,8 +100,10 @@ function onSubmit(ev){
 }
 
 function onDrawChart(){
+    const {background} = gChart 
     clearCanvas()
     updateFormData()
+    if(background) coverCanvasWithImg(background)
     drawChart()
 }
 

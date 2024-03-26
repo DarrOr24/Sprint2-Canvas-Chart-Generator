@@ -2,6 +2,7 @@
 
 const MY_CHARTS = loadFromStorage('canvas')
 
+
 var gTermCount = 2
 var gChart = _createChart()
 
@@ -77,13 +78,17 @@ function _createChart() {
     return {
         theme: '',
         title: 'Title',
+        background: '',
         valueType: 'percent',
         terms: [_createTerm(),_createTerm()]
     }
 }
 
 function _saveToStorage() {
+    var {background} = gChart
+    gChart.background = ''
     const chart = structuredClone(gChart)
+    chart.background = background
     chart.creationTime = getDate()
     
     MY_CHARTS.push(chart)
