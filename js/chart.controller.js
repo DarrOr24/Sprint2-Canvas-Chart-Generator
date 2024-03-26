@@ -1,7 +1,6 @@
 'use strict'
 
 function onInit() {
-    
     gTermCount = 2
     gChart = _createChart()
     renderChartTypes()

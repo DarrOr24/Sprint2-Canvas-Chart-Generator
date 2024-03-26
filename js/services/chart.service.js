@@ -61,6 +61,10 @@ function addTerm(){
 // function updateTerm(idx, term){} 
 
 function removeTerm(idx){
+    if(gTermCount===1){
+        alert('You need at least one term')
+        return
+    }
     gTermCount--
     gChart.terms.splice(idx, 1)
     renderEditor()
