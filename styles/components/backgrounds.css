@@ -1,22 +1,19 @@
-.backgrounds-selection{
-    align-self: end;
-    height: 20vh;
+.backgrounds-selector{
+    grid-area: background-selector;
+    display: grid;
+    place-content: center; 
 }
 
 .backgrounds {
     display: grid;
     grid-auto-flow: column;
-    place-items: center;
-    
 }
 
 .backgrounds-title{
-    margin-block: 0.5em;
+    margin-block-end: 0.5em;
     background-color: var(--primary--2);
 }
 
 .background-img {
-    height: 5em;
-    
-    
+    height: 5em;  
 }

@@ -1,15 +1,8 @@
 .chart-editor{
+    grid-area: chart-editor;
     display: grid;
-    
-    border: 1px solid lightgray;
-    padding: 0.7em;
-    height: 90vh;
-}
-
-.top-editor {
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-    height: 60vh;
+    justify-self: center;
+    padding-block-end: 1em;
 }
 
 .chart-types {
@@ -27,7 +20,6 @@
     align-self: start;
     grid-auto-flow: column;
 }
-
 
 .chart-samples div{
     display:grid;
@@ -48,10 +40,8 @@
     border: 2px solid palevioletred;
 }
 
-
 .chart-form{
     display:grid;
-    /* row-gap: 0.7em; */
     grid-template-areas:"title" 
                         "header"
                         "terms"
@@ -68,10 +58,9 @@
 }
 
 .terms {
-    /* margin-block-start: 0.5em; */
     grid-area: terms;
     border: 2px solid lightgray;
-    padding-block: 0.5em;
+    padding: 0.5em;
     gap: 0.2em;
     align-items: center;
 }

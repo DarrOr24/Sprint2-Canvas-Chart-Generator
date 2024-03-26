@@ -1,19 +1,17 @@
 .chart-display{
+    grid-area: chart-display;
+    align-self: start;
+    justify-self: center;
+
     position: relative;
-    place-self: end;
+
     border: 1px solid lightgray;
     padding: 0.7em;
-    height: 90vh;
     /* grid-template-rows: 60vh, 20vh; */
 }
 
-/* .chart {
-    height: 60vh;
-} */
-
 canvas {
     /* border: 1px solid lightgray; */
-    
 }
 
 .modal {

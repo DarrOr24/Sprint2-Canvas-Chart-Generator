@@ -19,38 +19,34 @@
     </header>
     
     <div class="main-container-layout">
-        <div class="chart-editor">
-            <div class="top-editor">
-                <section class="chart-types">
-                    <h2>Select chart type</h2>
-                    <div class="chart-samples"></div>
-                </section>
-                    
-                <form class="chart-form" id="chart-values" onsubmit="onSubmit(event)">
-                    <h2 class="form-title">Insert chart values</h2>
-                    <div class="editor-header"></div>
-                            
-                    <div class="terms"></div>
-                
-                    <div class="action-btns">
-                        <button class="btn draw" type="button" onclick="onDrawChart()">Draw chart</button> 
-                        <button class="btn submit">Submit</button>
-                        <button class="btn add-term" type="submit" onclick="onAddTerm()">Add term</button>
-                        <button class="btn clear" type="button" onclick="onClearChart()">Clear chart</button> 
-                        <button class="btn reset" type="reset" onclick="onReset()">Reset</button>   
-                                
-                    </div>
-                </form>
-            </div>
 
-            <section class="background-selection">
-                <h2 class="backgrounds-title">Select background</h2>
-                <div class="backgrounds"></div>
+        <section class="chart-editor">
+            <section class="chart-types">
+                <h2>Select chart type</h2>
+                <div class="chart-samples"></div>
             </section>
-        </div>
-            
-        <div class="modal"></div>
+                    
+            <form class="chart-form" id="chart-values" onsubmit="onSubmit(event)">
+                <h2 class="form-title">Insert chart values</h2>
+                <div class="editor-header"></div>
+                            
+                <div class="terms"></div>
+                
+                <div class="action-btns">
+                    <button class="btn draw" type="button" onclick="onDrawChart()">Draw chart</button> 
+                    <button class="btn submit">Submit</button>
+                    <button class="btn add-term" type="submit" onclick="onAddTerm()">Add term</button>
+                    <button class="btn clear" type="button" onclick="onClearChart()">Clear chart</button> 
+                    <button class="btn reset" type="reset" onclick="onReset()">Reset</button>               
+                </div>
+            </form>
+        </section>
 
+        <section class="background-selector">
+            <h2 class="backgrounds-title">Select background</h2>
+            <div class="backgrounds"></div>
+        </section>
+             
         <section class="chart-display">
             <h2 class="chart-title"></h2>
             <canvas width="350" height="350" onmousemove="onMouseMove(event)"></canvas>
@@ -58,14 +54,16 @@
                 <a href="#" class="btn download-btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download</a>
                 <button onclick="onSave()" class="btn save-btn">Save</button> 
             </div>
-
-            <div class="gallery">
-                <h2 class="gallery-title"> Gallery </h2>
-            </div>  
         </section>
-    </div>
+        
+        <section class="gallery">
+            <h2 class="gallery-title"> Gallery </h2>
+        </section>
+        
+        <div class="modal"></div>
 
-    
+    </div>
+ 
     <div class="my-charts-box">
         <button class="my-charts-btn btn" onclick="onCloseMyCharts()">X</button>
         <h2 class="my-charts-title">My Charts</h2>
