@@ -11,6 +11,7 @@ var gCtx
 
 function clearCanvas(){
     gCtx.fillStyle = 'whitesmoke'
+    // gCtx.fillStyle = '#f0f0f0'
 	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
     document.querySelector('.chart-title').innerText = ''   
 }
