@@ -31,7 +31,9 @@ function onOpenSavedChart(idx){
     // const myChartsArr = getMyCharts()
     // gChart = myChartsArr[idx]
     gChart = MY_CHARTS[idx]
-    const {background} = gChart
+    const {background, terms} = gChart
+    gTermCount = terms.length
+
     
     document.body.classList.remove('my-charts-open')
 

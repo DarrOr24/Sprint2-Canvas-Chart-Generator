@@ -1,5 +1,6 @@
 .chart-editor{
     display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
     border: 1px solid lightgray;
     padding: 0.7em;
     height: 90vh;
@@ -70,9 +71,10 @@
 }
 
 .action-btns {
-    margin-block-start: 0.5em;
+    margin-block-start: 0.3em;
     grid-area: action-btns;
     gap: 0.2em;
+    height: 3em;
 }
 
 .editor-header, .terms, .action-btns{
@@ -124,9 +126,11 @@ label {
     /* align-self: center; */
 }
 
+.value-input, .name-input, .title-input{
+    color: var(--primary--3);
+}
 
 .value-input {
-    color: var(--primary--1);
     width: 50px;   
 }
 .color-input {

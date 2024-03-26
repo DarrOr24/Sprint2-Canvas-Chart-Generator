@@ -1,12 +1,12 @@
 'use strict'
 
 function onInit() {
-    renderGallery()
-
+    
     gTermCount = 2
     gChart = _createChart()
     renderChartTypes()
     renderEditor()
+    renderBackgroundImgs()
     gElCanvas = document.querySelector('canvas')
 	gCtx = gElCanvas.getContext('2d')
 
@@ -71,7 +71,7 @@ function renderChartEditorHeader() {
 
     var strHtmls = `
         <label class="title-label" for="title">Title:</label>
-        <input type="text" id="title" name="title" value="${title}" size="20">
+        <input class="title-input" type="text" id="title" name="title" value="${title}" size="20">
 
         <select name="valueType" class="val-units">
                 <option  value="${valueType1}">${valueType1disp}</option>

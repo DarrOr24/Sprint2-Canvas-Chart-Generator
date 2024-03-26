@@ -1,7 +1,7 @@
 'use strict'
 
 
-function renderGallery() {
+function renderBackgroundImgs() {
 
     const strHtmls = `
             <img src="img/triangles.jpg" onclick="onSelectImg(this)" class="background-img" />
