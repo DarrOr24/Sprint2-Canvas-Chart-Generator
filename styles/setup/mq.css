@@ -37,7 +37,8 @@
     .chart-editor{
         justify-content: center;
         padding: 0;
-        padding-block-end: 1em;
+        /* padding-block-end: 1em; */
+        /* height: 60vh; */
     }
 
     .chart-types h2, .form-title{

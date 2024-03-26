@@ -1,12 +1,12 @@
 .chart-display{
     grid-area: chart-display;
-    align-self: start;
+    /* align-self: start; */
     justify-self: center;
 
     position: relative;
 
     border: 1px solid lightgray;
-    padding: 0.7em;
+    padding: 0.7em 0.7em 0;
     /* grid-template-rows: 60vh, 20vh; */
 }
 
@@ -39,15 +39,19 @@ canvas {
 
 .canvas-btns {
     display: grid; 
+    align-content: center;
+    margin-block-end: 0.5em;
 }
 
 .save-btn{
     grid-column: 2;
     justify-self: end;
+    
 }
 
 .download-btn{
     justify-self: start;
+    align-self: center;
 }
 
 
