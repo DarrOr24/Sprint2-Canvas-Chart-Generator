@@ -6,8 +6,10 @@ function renderBackgroundImgs() {
     const strHtmls = `
             <img src="img/triangles.jpg" onclick="onSelectImg(this)" class="background-img" />
             <img src="img/paint.jpg" onclick="onSelectImg(this)" class="background-img" />
+			<img src="img/math.jpg" onclick="onSelectImg(this)" class="background-img" />
 			<img src="img/flower.jpg" onclick="onSelectImg(this)" class="background-img" />
-			<img src="img/money-square.jpg" onclick="onSelectImg(this)" class="background-img" />`
+			<img src="img/black.jpg" onclick="onSelectImg(this)" class="background-img" />
+            `
 
     document.querySelector('.backgrounds').innerHTML = strHtmls
 }
