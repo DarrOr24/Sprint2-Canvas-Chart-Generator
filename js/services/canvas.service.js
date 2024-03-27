@@ -49,6 +49,7 @@ function drawChart(){
 function drawRectChart(valueType, terms){
     terms.forEach((term, idx) => {
         term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
+        term.percentVal = term.value*100/term.totalVal
         gCtx.fillStyle = term.color
         switch(valueType){
             case 'units':
@@ -61,7 +62,8 @@ function drawRectChart(valueType, terms){
                 break
             
             case 'percent':
-                term.y = gElCanvas.height - (term.value*100/term.totalVal)*3.5
+                // term.y = gElCanvas.height - (term.value*100/term.totalVal)*3.5
+                term.y = gElCanvas.height - term.percentVal*3.5
                 gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value*3.5)
         }
     })
@@ -105,6 +107,8 @@ function drawPieChart(terms){
         term.radius = radius
         term.x = gElCanvas.width/2
         term.y = gElCanvas.height/2
+
+        term.percentVal = term.value*100/totalVal
         
         const ratio = term.value/term.totalVal
         term.angle = ratio*2*Math.PI
@@ -137,35 +141,31 @@ function drawPieChart(terms){
 function drawLineChart(valueType, terms){
     const numOfTerms = terms.length
     terms.forEach((term, idx, arr) => {
+        term.percentVal = term.value*100/term.totalVal
+        term.radius = 4
+        term.x = (idx + 1) * (gElCanvas.width/(numOfTerms+1))
+
         if(valueType === 'units') {
             if(term.value > gElCanvas.height){ //units cannot exceed canvas height
                 alert(`Maximum unit size is ${gElCanvas.height}`)
                 return
             }
             term.y = gElCanvas.height - term.value
-        } else if(valueType === 'percent') term.y = gElCanvas.height - (term.value*100/term.totalVal)*3
+        } else if(valueType === 'percent') term.y = gElCanvas.height - term.percentVal*3
         
-        term.x = (idx + 1) * (gElCanvas.width/(numOfTerms+1))
-
         gCtx.beginPath()
-        drawArc(term.x, term.y, 4, 0, 2*Math.PI, term.color)
+        drawArc(term.x, term.y, term.radius, 0, 2*Math.PI, term.color)
         gCtx.closePath()
         gCtx.fillStyle = term.color
 	    gCtx.fill()
 
         if(idx > 0){
-            const xEnd = term.x
-            const yEnd = term.y
-
-            const x = arr[idx-1].x
-            const y = arr[idx-1].y
-
             const line = {
-            x: x,
-            y: y,
-            xEnd: xEnd,
-            yEnd: yEnd,
-            color: 'black'
+                x: arr[idx-1].x,
+                y: arr[idx-1].y,
+                xEnd: term.x,
+                yEnd: term.y,
+                color: 'black'
             }
 
             gCtx.beginPath()
@@ -192,11 +192,11 @@ function drawLine(line) {
 }
 
 function mouseMove(offsetX, offsetY, clientX, clientY){
-    const {terms, valueType, theme} = gChart
+    const {terms, theme} = gChart
 
     switch(theme){
         case 'rect':
-            mouseMoveRect(valueType, terms,offsetX, offsetY, clientX, clientY)
+            mouseMoveRect(terms,offsetX, offsetY, clientX, clientY)
             break
 
         case 'circle':
@@ -206,10 +206,15 @@ function mouseMove(offsetX, offsetY, clientX, clientY){
         case 'pie':
             mouseMovePie(terms,offsetX, offsetY, clientX, clientY)
             break
+
+        case 'line':
+            mouseMoveLine(terms,offsetX, offsetY, clientX, clientY)
+            break
     }
 }
 
-function mouseMoveRect(valueType, terms,offsetX, offsetY, clientX, clientY){
+function mouseMoveRect(terms,offsetX, offsetY, clientX, clientY){
+    const {valueType} = gChart
     const term = terms.find(term => {
         var { x, y, value } = term
         if(valueType === 'units'){
@@ -219,13 +224,12 @@ function mouseMoveRect(valueType, terms,offsetX, offsetY, clientX, clientY){
             return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
                     offsetY >= y && offsetY <= y + value*3.5)
         }
-        
     })
 
     if((term) && valueType === 'units'){
         openModal(term.name, term.value, clientX, clientY)
     }else if((term) && valueType === 'percent'){
-        openModal(term.name, (term.value*100/term.totalVal), clientX, clientY)
+        openModal(term.name, term.percentVal, clientX, clientY)
     }else {
         closeModal()
     }
@@ -237,8 +241,8 @@ function mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY){
     const term = terms.find(term => {
         var { x, y, radius } = term
         
-        return (offsetX >= x-radius  && offsetX <= x + radius &&
-                offsetY >= y - radius && offsetY <= y + radius)
+        return (offsetX >= x - radius  && offsetX <= x + radius &&
+                offsetY >= y - radius  && offsetY <= y + radius)
     })
 
     if(term){
@@ -250,6 +254,7 @@ function mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY){
 }
 
 function mouseMovePie(terms,offsetX, offsetY, clientX, clientY){
+    const {valueType} = gChart
     const term = terms.find((term, idx, arr) => {
         const { line} = term
         if(idx === arr.length - 1){
@@ -267,35 +272,38 @@ function mouseMovePie(terms,offsetX, offsetY, clientX, clientY){
                 offsetY >= yMin && offsetY <= yMax)
     })
 
+    if((term) && valueType === 'units'){
+        openModal(term.name, term.value, clientX, clientY)
+    }else if((term) && valueType === 'percent'){
+        openModal(term.name, term.percentVal, clientX, clientY)
+    }else {
+        closeModal()
+    }
+}
+
+function mouseMoveLine(terms,offsetX, offsetY, clientX, clientY){
+    const {valueType} = gChart
+
+    const term = terms.find(term => {
+        var { x, y, radius } = term
+        
+        return (offsetX >= x - radius*2  && offsetX <= x + radius*2 &&
+                offsetY >= y - radius*2  && offsetY <= y + radius*2)
+    })
+
     if(term){
-        openModal(term.name, term.value, clientX, clientY, term.totalVal)
+        if(valueType === 'units') openModal(term.name, term.value, clientX, clientY)
+        if(valueType === 'percent') openModal(term.name, term.percentVal, clientX, clientY)
     } else {
         closeModal()
     }
 }
 
-function help(terms){
-    terms.forEach((term, idx, arr) => {
-        const { line } = term
-        if(idx === arr.length - 1){
-            var endLine = arr[0].line
-        }else {
-            endLine = arr[idx+1].line
-        }
-        
-        console.log(line.xEnd, endLine.xEnd, line.yEnd, endLine.yEnd)
-        
-        
-        
-    })
-}
-
-function openModal(termName, termValue, x, y, termTotalVal) {
+function openModal(termName, termValue, x, y) {
     
-    var {valueType, theme} = gChart
+    var {valueType} = gChart
     if(valueType === 'percent'){
         valueType = `%`
-        if(theme ==='pie') { termValue = termValue*100/termTotalVal}
         termValue = termValue.toFixed(2)
     } 
 
@@ -310,6 +318,8 @@ function openModal(termName, termValue, x, y, termTotalVal) {
 function closeModal() {
 	document.querySelector('.modal').style.opacity = 0
 }
+
+
 
 
 
