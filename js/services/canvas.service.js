@@ -33,8 +33,7 @@ function drawChart(){
             break
 
         case 'circle':
-            if(valueType === 'units') drawCircleUnits(terms)
-            if(valueType === 'percent') drawCirclePercent(terms)
+            drawCircleChart(valueType, terms)
             break
 
         case 'line':
@@ -68,51 +67,32 @@ function drawRectChart(valueType, terms){
     })
 }
 
-function drawCirclePercent(terms){
+function drawCircleChart(valueType, terms){
     const numOfTerms = terms.length
 
     terms.forEach((term, idx) => {
-        gCtx.beginPath()
-
-        if(numOfTerms===1) term.x = (idx + 1) * gElCanvas.width/2
-        if(numOfTerms===2) term.x = (idx + 1) * gElCanvas.width/3
-        if(numOfTerms===3) term.x = (idx + 1) * gElCanvas.width/4
-        if(numOfTerms===4) term.x = (idx + 1) * gElCanvas.width/5
-        
+        term.x = (idx + 1) * gElCanvas.width/(numOfTerms+1)
         term.y = gElCanvas.height/2
-        term.radius = (term.value)*100/term.totalVal
+     
+        switch(valueType){
+            case 'units':
+                if(term.value > gElCanvas.height){
+                    alert(`Maximum unit size is ${gElCanvas.height}`)
+                    return
+                }
+                term.radius = term.value/2
+                break
 
-        gCtx.arc(term.x, term.y, term.radius, 0, 2 * Math.PI) // draws a circle
-      
-	    gCtx.fillStyle = term.color
-	    gCtx.fill()
-    })
-}
-
-function drawCircleUnits(terms){
-    const numOfTerms = terms.length
-    terms.forEach((term, idx) => {
-        if(term.value > gElCanvas.height){
-            alert(`Maximum unit size is ${gElCanvas.height}`)
-            return
+            case 'percent':
+                term.radius = (term.value)*100/term.totalVal
+                break
         }
-
         gCtx.beginPath()
-
-        if(numOfTerms===1) term.x = (idx + 1) * gElCanvas.width/2
-        if(numOfTerms===2) term.x = (idx + 1) * gElCanvas.width/3
-        if(numOfTerms===3) term.x = (idx + 1) * gElCanvas.width/4
-        if(numOfTerms===4) term.x = (idx + 1) * gElCanvas.width/5
-        
-        term.y = gElCanvas.height/2
-        term.radius = term.value/2
-
         gCtx.arc(term.x, term.y, term.radius, 0, 2 * Math.PI) // draws a circle
       
 	    gCtx.fillStyle = term.color
 	    gCtx.fill()
     })
-
 }
 
 function drawPie(terms){
