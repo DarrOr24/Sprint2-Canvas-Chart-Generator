@@ -38,6 +38,11 @@ function drawChart(){
             if(valueType === 'percent') drawCirclePercent(terms)
             break
 
+        case 'line':
+            if(valueType === 'units') drawLineChartUnits(terms)
+            if(valueType === 'percent') drawLineChartPercent(terms)
+            break
+
         case 'pie':
             drawPie(terms)
             break
@@ -146,7 +151,7 @@ function drawPie(terms){
 
         gCtx.beginPath()
         drawLine(line)
-        drawArcDeg(term.x, term.y,radius, startAngle, term.angle, term.color)
+        drawArc(term.x, term.y,radius, startAngle, term.angle, term.color)
         gCtx.closePath()
         gCtx.fillStyle = term.color
 	    gCtx.fill()
@@ -154,7 +159,52 @@ function drawPie(terms){
 }
 
 
-function drawArcDeg(x, y, radius, startAngle, angle, color){
+function drawLineChartUnits(terms){
+    const numOfTerms = terms.length
+    terms.forEach((term, idx, arr) => {
+        if(term.value > gElCanvas.height){
+            alert(`Maximum unit size is ${gElCanvas.height}`)
+            return
+        }
+        
+        term.x = (idx + 1) * (gElCanvas.width/(numOfTerms+1))
+        term.y = gElCanvas.height - term.value
+
+        gCtx.beginPath()
+        drawArc(term.x, term.y, 4, 0, 2*Math.PI, term.color)
+        gCtx.closePath()
+        gCtx.fillStyle = term.color
+	    gCtx.fill()
+
+        
+
+        if(idx > 0){
+            const xEnd = term.x
+            const yEnd = term.y
+
+            const x = arr[idx-1].x
+            const y = arr[idx-1].y
+
+            const line = {
+            x: x,
+            y: y,
+            xEnd: xEnd,
+            yEnd: yEnd,
+            color: 'black'
+            }
+
+            console.log('idx:', idx, 'x:', term.x, 'y:', term.y)
+            console.log(line)
+
+
+            gCtx.beginPath()
+            drawLine(line)
+            gCtx.closePath()
+        } 
+    })
+}
+
+function drawArc(x, y, radius, startAngle, angle, color){
     gCtx.arc(x, y, radius, startAngle, angle+startAngle) // draws a circle    
 	gCtx.strokeStyle = color
 	gCtx.stroke()

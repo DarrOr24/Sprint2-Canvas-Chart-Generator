@@ -80,8 +80,4 @@ function onMyChartsFilter(){
     _filterMyCharts(input.value)
 }
 
-// function onClear(){
-//     const myChartsArr = getMyCharts()
-//     renderMyCharts(myChartsArr)
-// }
 
