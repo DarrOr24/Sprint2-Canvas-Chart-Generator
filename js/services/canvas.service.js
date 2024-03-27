@@ -41,7 +41,7 @@ function drawChart(){
             break
 
         case 'pie':
-            drawPie(terms)
+            drawPieChart(terms)
             break
     }
 }
@@ -95,7 +95,7 @@ function drawCircleChart(valueType, terms){
     })
 }
 
-function drawPie(terms){
+function drawPieChart(terms){
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
     terms.forEach(term => term.totalVal = totalVal)
     const radius = 100
@@ -194,8 +194,7 @@ function mouseMove(offsetX, offsetY, clientX, clientY){
 
     switch(theme){
         case 'rect':
-            if(valueType === 'units') mouseMoveRectUnits(terms,offsetX, offsetY, clientX, clientY)
-            if(valueType === 'percent') mouseMoveRectPerc(terms,offsetX, offsetY, clientX, clientY)
+            mouseMoveRect(valueType, terms,offsetX, offsetY, clientX, clientY)
             break
 
         case 'circle':
@@ -204,40 +203,33 @@ function mouseMove(offsetX, offsetY, clientX, clientY){
     }
 }
 
-function mouseMoveRectUnits(terms,offsetX, offsetY, clientX, clientY){
+function mouseMoveRect(valueType, terms,offsetX, offsetY, clientX, clientY){
     const term = terms.find(term => {
         var { x, y, value } = term
-
-        return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-                offsetY >= y && offsetY <= y + value)
+        if(valueType === 'units'){
+            return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
+                    offsetY >= y && offsetY <= y + value)
+        }else if(valueType === 'percent'){
+            return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
+                    offsetY >= y && offsetY <= y + value*3.5)
+        }
+        
     })
 
-    if(term){
+    if((term) && valueType === 'units'){
         openModal(term.name, term.value, clientX, clientY)
-    } else {
-        closeModal()
-    }
-}
-
-function mouseMoveRectPerc(terms,offsetX, offsetY, clientX, clientY){
-    const term = terms.find(term => {
-        var { x, y, value } = term
-
-        return (offsetX >= x && offsetX <= x + BAR_WIDTH &&
-                offsetY >= y && offsetY <= y + value*3)
-    })
-
-    if(term){
+    }else if((term) && valueType === 'percent'){
         openModal(term.name, (term.value*100/term.totalVal), clientX, clientY)
-    } else {
+    }else {
         closeModal()
     }
 }
+
 function mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY){
     const {valueType} = gChart
 
     const term = terms.find(term => {
-        var { x, y, value, radius } = term
+        var { x, y, radius } = term
         
         return (offsetX >= x-radius  && offsetX <= x + radius &&
                 offsetY >= y - radius && offsetY <= y + radius)
