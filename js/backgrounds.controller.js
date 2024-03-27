@@ -4,18 +4,23 @@
 function renderBackgroundImgs() {
 
     const strHtmls = `
-            <img src="img/triangles.jpg" onclick="onSelectImg(this)" class="background-img" />
-            <img src="img/paint.jpg" onclick="onSelectImg(this)" class="background-img" />
-			<img src="img/math.jpg" onclick="onSelectImg(this)" class="background-img" />
-			<img src="img/flower.jpg" onclick="onSelectImg(this)" class="background-img" />
-			<img src="img/black.jpg" onclick="onSelectImg(this)" class="background-img" />
+            <img src="img/triangles.jpg" onclick="onSelectImg(this, 'triangle')" class="background-img triangle" />
+            <img src="img/paint.jpg" onclick="onSelectImg(this, 'paint')" class="background-img paint" />
+			<img src="img/math.jpg" onclick="onSelectImg(this, 'math')" class="background-img math" />
+			<img src="img/flower.jpg" onclick="onSelectImg(this, 'flower')" class="background-img flower" />
+			<img src="img/black.jpg" onclick="onSelectImg(this, 'black')" class="background-img black" />
             `
 
     document.querySelector('.backgrounds').innerHTML = strHtmls
 }
 
-function onSelectImg(elImg) {
-    coverCanvasWithImg(elImg)
+function onSelectImg(elBackgroundImg) {
+    coverCanvasWithImg(elBackgroundImg)
+
+    const elBackgroundImgs = document.querySelectorAll('.background-img')
+    elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
+
+    elBackgroundImg.classList.add('clicked')
 }
 
 function coverCanvasWithImg(elImg) {

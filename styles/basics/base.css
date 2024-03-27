@@ -35,6 +35,11 @@ a {
     text-decoration: none;
 }
   
-/* a:hover {
-    text-decoration: none;
-} */
+img {
+    height: 5em;
+}
+
+img:hover {
+    border: 2px solid palevioletred;
+    cursor: pointer;
+}

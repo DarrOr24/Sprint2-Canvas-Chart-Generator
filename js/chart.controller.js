@@ -7,6 +7,7 @@ function onInit() {
     renderEditor()
     renderBackgroundImgs()
     renderGalleryCharts()
+    renderGalleryImgs()
     MY_CHARTS.forEach(chart => chart.background = '')
     gElCanvas = document.querySelector('canvas')
 	gCtx = gElCanvas.getContext('2d')
@@ -20,6 +21,12 @@ function onReset(){
     
     const elAllChartTypes = document.querySelectorAll('.chart-type')
     elAllChartTypes.forEach(chart => chart.classList.remove('clicked'))
+
+    const elBackgroundImgs = document.querySelectorAll('.background-img')
+    elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
+
+    const elGalleryImgs = document.querySelectorAll('.gallery-img')
+    elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
     
     gChart = _createChart()
     renderEditor()

@@ -1,9 +1,7 @@
 .chart-editor{
     grid-area: chart-editor;
     display: grid;
-    padding-block-end: 0.7em;
-    
-    
+    padding-block-end: 0.7em;   
 }
 
 .chart-types {
@@ -24,10 +22,6 @@
     align-self: end;
     grid-auto-flow: column;
 }
-
-/* .chart-samples div{
-    display:grid;
-} */
 
 .chart-samples img {
     height: 5em;
