@@ -48,11 +48,20 @@ function updateChartTypeEditor(){
     const {theme} = gChart
     const elAllChartTypes = document.querySelectorAll('.chart-type')
     elAllChartTypes.forEach(chart => chart.classList.remove('clicked'))
-    
-    if(theme === 'rect') var elChartType = document.querySelector('.chart-type-rect')
+
+    switch(theme){
+        case('rect'):
+            var elChartType = document.querySelector('.chart-type-rect')
+            break
         
-    else if(theme === 'circle') elChartType = document.querySelector('.chart-type-circle')
-    
+        case('circle'):
+            elChartType = document.querySelector('.chart-type-circle')
+            break
+
+        case('pie'):
+            elChartType = document.querySelector('.chart-type-pie')
+            break
+    }
     elChartType.classList.add('clicked')
 }
 

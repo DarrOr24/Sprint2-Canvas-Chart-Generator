@@ -27,6 +27,7 @@ function onReset(){
 function renderChartTypes() {
     const strHtmls = `
     <img src="img/bar-chart.jpg" alt="" onclick = "onChartSelect(this,'rect')" class="chart-type chart-type-rect">
+    <img src="img/pie-chart.jpg" alt="" onclick = "onChartSelect(this,'pie')" class="chart-type chart-type-pie">
     <img src="img/circle-chart.jpg" alt="" onclick = "onChartSelect(this,'circle')" class="chart-type chart-type-circle">`
     
     document.querySelector('.chart-samples').innerHTML = strHtmls
