@@ -29,8 +29,7 @@ function drawChart(){
             break
 
         case 'rect':
-            if(valueType === 'units') drawRectUnits(terms)
-            if(valueType === 'percent') drawRectPercent(terms)
+            drawRectChart(valueType, terms)
             break
 
         case 'circle':
@@ -39,8 +38,7 @@ function drawChart(){
             break
 
         case 'line':
-            if(valueType === 'units') drawLineChartUnits(terms)
-            if(valueType === 'percent') drawLineChartPercent(terms)
+            drawLineChart(valueType, terms)
             break
 
         case 'pie':
@@ -49,28 +47,24 @@ function drawChart(){
     }
 }
 
-function drawRectUnits(terms){
+function drawRectChart(valueType, terms){
     terms.forEach((term, idx) => {
-        if(term.value > gElCanvas.height){
-            alert(`Maximum unit size is ${gElCanvas.height}`)
-            return
+        term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
+        gCtx.fillStyle = term.color
+        switch(valueType){
+            case 'units':
+                if(term.value > gElCanvas.height){
+                    alert(`Maximum unit size is ${gElCanvas.height}`)
+                    return
+                }
+                term.y = gElCanvas.height - term.value
+                gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value)
+                break
+            
+            case 'percent':
+                term.y = gElCanvas.height - (term.value*100/term.totalVal)*3.5
+                gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value*3.5)
         }
-
-        term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
-        term.y = gElCanvas.height - term.value
-
-        gCtx.fillStyle = term.color
-        gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value)
-    })
-}
-
-function drawRectPercent(terms){
-    terms.forEach((term, idx) => {
-        term.x = (idx + 1) * (BAR_SPACE + BAR_WIDTH)
-        term.y = gElCanvas.height - (term.value*100/term.totalVal)*3
-
-        gCtx.fillStyle = term.color
-        gCtx.fillRect(term.x, term.y, BAR_WIDTH, term.value*3)
     })
 }
 
@@ -158,25 +152,24 @@ function drawPie(terms){
     })
 }
 
-
-function drawLineChartUnits(terms){
+function drawLineChart(valueType, terms){
     const numOfTerms = terms.length
     terms.forEach((term, idx, arr) => {
-        if(term.value > gElCanvas.height){
-            alert(`Maximum unit size is ${gElCanvas.height}`)
-            return
-        }
+        if(valueType === 'units') {
+            if(term.value > gElCanvas.height){ //units cannot exceed canvas height
+                alert(`Maximum unit size is ${gElCanvas.height}`)
+                return
+            }
+            term.y = gElCanvas.height - term.value
+        } else if(valueType === 'percent') term.y = gElCanvas.height - (term.value*100/term.totalVal)*3
         
         term.x = (idx + 1) * (gElCanvas.width/(numOfTerms+1))
-        term.y = gElCanvas.height - term.value
 
         gCtx.beginPath()
         drawArc(term.x, term.y, 4, 0, 2*Math.PI, term.color)
         gCtx.closePath()
         gCtx.fillStyle = term.color
 	    gCtx.fill()
-
-        
 
         if(idx > 0){
             const xEnd = term.x
@@ -192,10 +185,6 @@ function drawLineChartUnits(terms){
             yEnd: yEnd,
             color: 'black'
             }
-
-            console.log('idx:', idx, 'x:', term.x, 'y:', term.y)
-            console.log(line)
-
 
             gCtx.beginPath()
             drawLine(line)

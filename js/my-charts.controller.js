@@ -61,6 +61,10 @@ function updateChartTypeEditor(){
         case('pie'):
             elChartType = document.querySelector('.chart-type-pie')
             break
+
+        case('line'):
+            elChartType = document.querySelector('.chart-type-line')
+            break
     }
     elChartType.classList.add('clicked')
 }
