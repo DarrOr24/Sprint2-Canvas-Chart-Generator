@@ -99,33 +99,35 @@ function drawPieChart(terms){
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
     terms.forEach(term => term.totalVal = totalVal)
     const radius = 100
+
    
     terms.forEach((term, idx, arr) => {
-        gCtx.beginPath()
-        
+        term.radius = radius
         term.x = gElCanvas.width/2
         term.y = gElCanvas.height/2
         
         const ratio = term.value/term.totalVal
         term.angle = ratio*2*Math.PI
        
-        var startAngle = 0
+        term.startAngle = 0
         
         for(var i=1; i<=idx; i++){
-            startAngle += arr[idx-i].angle
+            term.startAngle += arr[idx-i].angle
         }
 
         const line = {
             x: term.x,
             y: term.y,
-            xEnd: radius*Math.cos(startAngle) + term.xd,
-            yEnd: radius*Math.sin(startAngle) + term.y,
+            xEnd: term.radius*Math.cos(term.startAngle) + term.x,
+            yEnd: term.radius*Math.sin(term.startAngle) + term.y,
             color: term.color
         }
 
+        term.line = line
+
         gCtx.beginPath()
         drawLine(line)
-        drawArc(term.x, term.y,radius, startAngle, term.angle, term.color)
+        drawArc(term.x, term.y,term.radius, term.startAngle, term.angle, term.color)
         gCtx.closePath()
         gCtx.fillStyle = term.color
 	    gCtx.fill()
@@ -200,6 +202,10 @@ function mouseMove(offsetX, offsetY, clientX, clientY){
         case 'circle':
             mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY)
             break
+
+        // case 'pie':
+        //     mouseMovePie(terms,offsetX, offsetY, clientX, clientY)
+        //     break
     }
 }
 
@@ -243,12 +249,50 @@ function mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY){
     }
 }
 
+function mouseMovePie(terms,offsetX, offsetY, clientX, clientY){
+    
+    const term = terms.find((term, idx, arr) => {
+        const { line } = term
+        if(idx === arr.length - 1){
+            var endLine = arr[0].line
+        }else {
+            endLine = arr[idx+1].line
+        }
+        
+        return (offsetX >= line.xEnd && offsetX <= endLine.xEnd &&
+                offsetY >= line.yEnd && offsetY <= endLine.yEnd)
+    })
+
+    if(term){
+        console.log(term.value)
+        openModal(term.name, term.value, clientX, clientY)
+    } else {
+        closeModal()
+    }
+}
+
+function help(terms){
+    terms.forEach((term, idx, arr) => {
+        const { line } = term
+        if(idx === arr.length - 1){
+            var endLine = arr[0].line
+        }else {
+            endLine = arr[idx+1].line
+        }
+        
+        console.log(line.xEnd, endLine.xEnd, line.yEnd, endLine.yEnd)
+        
+        
+        
+    })
+}
+
 function openModal(termName, termValue, x, y) {
     
     var {valueType, theme} = gChart
     if(valueType === 'percent'){
         valueType = `%`
-        termValue = termValue.toFixed(2)
+        if(theme === 'rect' || theme === 'circle') termValue = termValue.toFixed(2)
     } 
 
     const elModal = document.querySelector('.modal')
