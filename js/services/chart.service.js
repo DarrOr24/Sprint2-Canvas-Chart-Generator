@@ -78,13 +78,13 @@ function _createTerm(name='', value=getRandomInt(10, 300), color= getRandomColor
     }
 }
 
-function _createChart(theme='', title = 'Title', background='', valueType='percent') {
+function _createChart(theme='', title = 'Title', background='', valueType='percent', terms= [_createTerm(),_createTerm()]) {
     return {
         theme,
         title,
         background,
         valueType,
-        terms: [_createTerm(),_createTerm()]
+        terms
     }
 }
 
