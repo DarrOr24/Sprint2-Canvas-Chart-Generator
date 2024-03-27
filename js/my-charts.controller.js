@@ -34,7 +34,6 @@ function onOpenSavedChart(idx){
     const {background, terms} = gChart
     gTermCount = terms.length
 
-    
     document.body.classList.remove('my-charts-open')
 
     clearCanvas()
