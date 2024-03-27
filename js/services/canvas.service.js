@@ -203,9 +203,9 @@ function mouseMove(offsetX, offsetY, clientX, clientY){
             mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY)
             break
 
-        // case 'pie':
-        //     mouseMovePie(terms,offsetX, offsetY, clientX, clientY)
-        //     break
+        case 'pie':
+            mouseMovePie(terms,offsetX, offsetY, clientX, clientY)
+            break
     }
 }
 
@@ -250,22 +250,25 @@ function mouseMoveCircle(terms,offsetX, offsetY, clientX, clientY){
 }
 
 function mouseMovePie(terms,offsetX, offsetY, clientX, clientY){
-    
     const term = terms.find((term, idx, arr) => {
-        const { line } = term
+        const { line} = term
         if(idx === arr.length - 1){
             var endLine = arr[0].line
         }else {
             endLine = arr[idx+1].line
         }
-        
-        return (offsetX >= line.xEnd && offsetX <= endLine.xEnd &&
-                offsetY >= line.yEnd && offsetY <= endLine.yEnd)
+        //NOT SO ACCURATE (FIX IT IF I HAVE TIME)
+        const xMax = Math.max(line.xEnd, endLine.xEnd)
+        const xMin = Math.min(line.xEnd, endLine.xEnd)
+        const yMax = Math.max(line.yEnd, endLine.yEnd)
+        const yMin = Math.min(line.yEnd, endLine.yEnd)
+    
+        return (offsetX >= xMin && offsetX <= xMax &&
+                offsetY >= yMin && offsetY <= yMax)
     })
 
     if(term){
-        console.log(term.value)
-        openModal(term.name, term.value, clientX, clientY)
+        openModal(term.name, term.value, clientX, clientY, term.totalVal)
     } else {
         closeModal()
     }
@@ -287,12 +290,13 @@ function help(terms){
     })
 }
 
-function openModal(termName, termValue, x, y) {
+function openModal(termName, termValue, x, y, termTotalVal) {
     
     var {valueType, theme} = gChart
     if(valueType === 'percent'){
         valueType = `%`
-        if(theme === 'rect' || theme === 'circle') termValue = termValue.toFixed(2)
+        if(theme ==='pie') { termValue = termValue*100/termTotalVal}
+        termValue = termValue.toFixed(2)
     } 
 
     const elModal = document.querySelector('.modal')
