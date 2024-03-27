@@ -70,20 +70,20 @@ function removeTerm(idx){
     renderEditor()
 }
 
-function _createTerm() {
+function _createTerm(name='', value=getRandomInt(10, 300), color= getRandomColor()) {
     return {
-        name: '',
-        value: getRandomInt(10, 300),
-        color: getRandomColor()
+        name,
+        value,
+        color
     }
 }
 
-function _createChart() {
+function _createChart(theme='', title = 'Title', background='', valueType='percent') {
     return {
-        theme: '',
-        title: 'Title',
-        background: '',
-        valueType: 'percent',
+        theme,
+        title,
+        background,
+        valueType,
         terms: [_createTerm(),_createTerm()]
     }
 }
