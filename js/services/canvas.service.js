@@ -12,14 +12,13 @@ var gCtx
 function clearCanvas(){
     gCtx.fillStyle = 'whitesmoke'
     // gCtx.fillStyle = '#f0f0f0'
-	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
-    document.querySelector('.chart-title').innerText = ''   
+	gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)   
 }
 
 function drawChart(){
-    const {theme, terms, title, valueType} = gChart
-    document.querySelector('.chart-title').innerText = title
-
+    const {theme, terms, title, valueType, backgroundName} = gChart
+    write(title, backgroundName)
+    
     const totalVal = terms.reduce((acc, term) =>  acc += +term.value, 0)
     terms.forEach(term => term.totalVal = totalVal)
 
@@ -319,6 +318,19 @@ function closeModal() {
 	document.querySelector('.modal').style.opacity = 0
 }
 
+function write(str, backgroundName, pos = {x:175, y:10}){
+    gCtx.font = '30px Arial'
+    gCtx.textAlign = 'center'
+	gCtx.textBaseline = 'top'
+
+    if(backgroundName==='.black') var color='white'
+    else color='black'
+
+    str = str.toUpperCase()
+    gCtx.fillStyle = color
+
+    gCtx.fillText(str, pos.x, pos.y)
+}
 
 
 

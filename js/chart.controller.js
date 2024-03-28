@@ -110,11 +110,12 @@ function onSubmit(ev){
 }
 
 function onDrawChart(){
-    const {background, backgroundName} = gChart 
+    const {background, backgroundName, title} = gChart 
     clearCanvas()
     updateFormData()
     if(background) coverCanvasWithImg(background)
     if(backgroundName) renderBackground(backgroundName)
+       
     drawChart()
 }
 

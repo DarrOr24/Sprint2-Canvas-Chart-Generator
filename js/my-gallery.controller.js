@@ -1,17 +1,18 @@
 'use strict'
 
 
-function onOpenGalleryChart(idx){
-    gChart = GALLERY_CHARTS[idx]
-    const {background, terms} = gChart
-    gTermCount = terms.length
+// function onOpenGalleryChart(idx){
+//     gChart = GALLERY_CHARTS[idx]
+//     const {background, terms} = gChart
+//     gTermCount = terms.length
 
-    clearCanvas()
-    if(background) coverCanvasWithImg(background)
-    drawChart()
-    renderEditor()
-    updateChartTypeEditor() 
-}
+//     clearCanvas()
+//     if(background) coverCanvasWithImg(background)
+//     drawChart()
+    
+//     renderEditor()
+//     updateChartTypeEditor() 
+// }
 
 
 function renderGalleryImgs() {
@@ -38,6 +39,7 @@ function onSelectGalleryChart(elGalleryImg, idx, backgroundName=''){
     gTermCount = terms.length
     
     drawChart()
+    // write(title, backgroundName)
     renderEditor()
     updateChartTypeEditor()
 }
