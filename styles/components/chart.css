@@ -38,7 +38,7 @@ canvas {
     margin-block-end: 0.5em;
 }
 
-.facebook-btn{
+.canvas-btns .facebook-btn{
     grid-column: 3;
     justify-self: end;
     background-color: rgba(111, 56, 239, 0.383);
@@ -48,6 +48,16 @@ canvas {
 .download-btn{
     justify-self: start;
     align-self: center;
+}
+
+.canvas-btns .save-btn{
+    transition: 1000ms;
+}
+
+.canvas-btns .saved{
+    transform-origin: center;
+    rotate: 360deg;
+    scale: 1.6;
 }
 
 

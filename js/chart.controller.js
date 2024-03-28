@@ -151,7 +151,9 @@ function onDownloadImg(elLink) {
     elLink.href = imgContent
 }
 
-function onSave() {
+function onSave(elSaveBtn) {
     _saveToStorage()
+    elSaveBtn.classList.add('saved')
+    setTimeout(() => elSaveBtn.classList.remove('saved'), 1200)
 }
 
