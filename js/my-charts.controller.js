@@ -34,8 +34,6 @@ function onOpenSavedChart(idx){
     const elGalleryImgs = document.querySelectorAll('.gallery-img')
     elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
 
-
-
     gChart = MY_CHARTS[idx]
     const {backgroundName, terms} = gChart
     gTermCount = terms.length

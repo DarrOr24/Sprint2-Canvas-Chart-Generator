@@ -1,6 +1,5 @@
 'use strict'
 
-
 function renderBackgroundImgs() {
 
     const strHtmls = `
@@ -10,7 +9,6 @@ function renderBackgroundImgs() {
 			<img src="img/flower.jpg" onclick="onSelectImg(this, '.flower')" class="background-img flower" />
 			<img src="img/black.jpg" onclick="onSelectImg(this, '.black')" class="background-img black" />
             `
-
     document.querySelector('.backgrounds').innerHTML = strHtmls
 }
 

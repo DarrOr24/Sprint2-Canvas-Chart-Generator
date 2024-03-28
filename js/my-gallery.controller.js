@@ -1,20 +1,5 @@
 'use strict'
 
-
-// function onOpenGalleryChart(idx){
-//     gChart = GALLERY_CHARTS[idx]
-//     const {background, terms} = gChart
-//     gTermCount = terms.length
-
-//     clearCanvas()
-//     if(background) coverCanvasWithImg(background)
-//     drawChart()
-    
-//     renderEditor()
-//     updateChartTypeEditor() 
-// }
-
-
 function renderGalleryImgs() {
 
     const strHtmls = `<img src="img/Life.jpg" onclick="onSelectGalleryChart(this, 0, '.math')" class="gallery-img life" />
@@ -39,7 +24,6 @@ function onSelectGalleryChart(elGalleryImg, idx, backgroundName=''){
     gTermCount = terms.length
     
     drawChart()
-    // write(title, backgroundName)
     renderEditor()
     updateOpacityEditor()
     updateChartTypeEditor()
