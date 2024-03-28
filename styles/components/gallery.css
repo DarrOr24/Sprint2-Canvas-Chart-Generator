@@ -14,6 +14,7 @@
     grid-auto-flow: column;
     place-items: center;
     border: 1px solid lightgray;
+    background-color: beige;
 }
 
 .gallery-charts img {

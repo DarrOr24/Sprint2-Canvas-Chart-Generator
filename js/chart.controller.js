@@ -49,7 +49,7 @@ function renderEditor(){
 
     var strHtmls = terms.map((term,idx) => `
         <label class="name-label" for="name">Term${idx+1}:</label>
-        <input class="name-input" type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="4">
+        <input class="name-input" type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="6">
        
         <label class="value-label" for="value">Value:</label>
         <input class="value-input" type="number" id="value" name="value${idx+1}" value="${term.value}" >
