@@ -13,6 +13,10 @@ body {
     font-size: 0.875rem;
     /* background-color:rgba(209, 165, 209, 0.528) */
 }
+
+.debug *{
+    outline: 1px solid orange;
+}
   
 h1,
 h2,

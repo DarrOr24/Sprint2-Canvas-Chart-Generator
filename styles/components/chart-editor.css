@@ -1,12 +1,15 @@
 .chart-editor{
     grid-area: chart-editor;
     display: grid;
-    padding-block-end: 0.7em;   
+    padding: 0.7em;  
+    border: 1px solid lightgray; 
+    
 }
 
 .chart-types {
     display:grid;
     align-self: start;
+    align-items: center;
     /* row-gap: 0.7em; */
 }
 
@@ -19,12 +22,12 @@
 
 .chart-samples {
     display: grid;
-    align-self: end;
+    align-items: center;
     grid-auto-flow: column;
 }
 
 .chart-samples img {
-    height: 5em;
+    height: 3em;
     place-self: center; 
 }
 
@@ -42,7 +45,6 @@
     height: 20em;
     align-content:start;
     display:grid;
-    grid-template-rows: repeat(2, 1fr) 3.5fr 1fr;
     grid-template-areas:"title" 
                         "header"
                         "terms"
@@ -50,7 +52,7 @@
 }
 
 .form-title {
-    grid-area: title;  
+    grid-area: title; 
 }
 
 .editor-header {
@@ -64,14 +66,16 @@
     padding: 0.5em;
     gap: 0.2em;
     align-content: start;
+    height: 10em;
 }
 
 .action-btns {
+    display:grid;
     margin-block-start: 0.3em;
     grid-area: action-btns;
     gap: 0.2em;
     height: 3em;
-    align-self: end;
+    align-items: end;
 }
 
 .editor-header, .terms, .action-btns{

@@ -24,9 +24,9 @@
     }
 
     .main-container-layout{
-        height: 90vh;
+        height: 85vh;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 3fr 1fr;
+        margin: 0;
         column-gap: 1em;
         align-content: start;
         justify-content: center;
@@ -36,21 +36,16 @@
 
 
     .chart-editor{
-        justify-content: center;
-        padding: 0;
-        /* padding-block-end: 1em; */
-        /* height: 60vh; */
+        /* padding: 0; */
+    }
+
+    .editor-header {
+        margin-block-end: 0.7em;
     }
 
     .chart-types h2, .form-title{
         margin-block-start: 0;
     }
-
-    .chart-form{
-        grid-template-rows: repeat(2, 1fr) 3fr 1fr;
-    }
-
-   
 }
 
 /* lARGE */
