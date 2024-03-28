@@ -49,6 +49,8 @@
     .chart-form{
         grid-template-rows: repeat(2, 1fr) 3fr 1fr;
     }
+
+   
 }
 
 /* lARGE */

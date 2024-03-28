@@ -1,13 +1,14 @@
 .chart-display{
     grid-area: chart-display;
-    /* align-self: start; */
     justify-self: center;
+    
+    display:grid;
+    row-gap: 0.5em;
 
     position: relative;
 
     border: 1px solid lightgray;
     padding: 0.7em 0.7em 0;
-    /* grid-template-rows: 60vh, 20vh; */
 }
 
 canvas {
@@ -43,13 +44,14 @@ canvas {
 
 .canvas-btns {
     display: grid; 
-    align-content: center;
+    align-content: start;
     margin-block-end: 0.5em;
 }
 
-.save-btn{
-    grid-column: 2;
+.facebook-btn{
+    grid-column: 3;
     justify-self: end;
+    background-color: rgba(111, 56, 239, 0.383);
     
 }
 
@@ -57,6 +59,8 @@ canvas {
     justify-self: start;
     align-self: center;
 }
+
+
 
 
 
