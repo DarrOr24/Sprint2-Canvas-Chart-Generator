@@ -61,8 +61,6 @@ function renderEditor(){
 
         <button class="btn remove-term-btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
         `)
-
-
     document.querySelector('.terms').innerHTML = strHtmls.join('')
 }
 
