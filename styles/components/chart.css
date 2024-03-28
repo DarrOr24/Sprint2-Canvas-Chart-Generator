@@ -51,7 +51,7 @@ canvas {
 }
 
 .canvas-btns .save-btn{
-    transition: 1000ms;
+    transition: 500ms;
 }
 
 /* .canvas-btns .rotate{

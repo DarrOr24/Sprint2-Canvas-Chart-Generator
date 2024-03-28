@@ -50,16 +50,18 @@ function renderEditor(){
     renderChartEditorHeader()
 
     var strHtmls = terms.map((term,idx) => `
-        <label class="name-label" for="name">Term${idx+1}:</label>
-        <input class="name-input" type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="6">
+        <div class="term">
+            <label class="name-label" for="name">Term${idx+1}:</label>
+            <input class="name-input" type="text" id="name" name="name${idx+1}" placeholder="term${idx+1}" value="${term.name}" size="6">
        
-        <label class="value-label" for="value">Value:</label>
-        <input class="value-input" type="number" id="value" name="value${idx+1}" value="${term.value}" >
+            <label class="value-label" for="value">Value:</label>
+            <input class="value-input" type="number" id="value" name="value${idx+1}" value="${term.value}" >
 
-        <label class="color-label" for="color">Color:</label>
-        <input class="color-input" type="color" id="color" name="color${idx+1}" value="${term.color}" />
+            <label class="color-label" for="color">Color:</label>
+            <input class="color-input" type="color" id="color" name="color${idx+1}" value="${term.color}" />
 
-        <button class="btn remove-term-btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
+            <button class="btn remove-term-btn" type="button" onclick="onRemoveTerm(${idx})">X</button> 
+            </div>
         `)
     document.querySelector('.terms').innerHTML = strHtmls.join('')
 }
@@ -128,8 +130,11 @@ function onClearChart(){
 }
 
 function onRemoveTerm(idx){
+    const elTerms = document.querySelectorAll('.term')
+    const elTerm = elTerms[idx]
+    elTerm.classList.add('bounce')
     updateFormData()
-    removeTerm(idx)
+    setTimeout(() => removeTerm(idx), 3000)
 }
 
 function onAddTerm(){
@@ -158,6 +163,6 @@ function onDownloadImg(elLink) {
 function onSave(elSaveBtn) {
     _saveToStorage()
     elSaveBtn.classList.add('rotate')
-    setTimeout(() => elSaveBtn.classList.remove('rotate'), 1200)
+    setTimeout(() => elSaveBtn.classList.remove('rotate'), 800)
 }
 

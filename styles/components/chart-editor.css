@@ -3,14 +3,12 @@
     display: grid;
     padding: 0.7em;  
     border: 1px solid lightgray; 
-    
 }
 
 .chart-types {
     display:grid;
     align-self: start;
     align-items: center;
-    /* row-gap: 0.7em; */
 }
 
 .chart-types h2, .form-title{
@@ -36,11 +34,6 @@
     cursor: pointer;
 }
 
-.clicked {
-    border-color: palevioletred;
-    border: 2px solid palevioletred;
-}
-
 .chart-form{
     height: 20em;
     align-content:start;
@@ -60,13 +53,19 @@
     align-items: center;
 }
 
-.terms {
+.chart-form .terms {
+    position: relative;
     grid-area: terms;
     border: 2px solid lightgray;
     padding: 0.5em;
     gap: 0.2em;
     align-content: start;
     height: 10em;
+}
+
+.chart-form .terms .term{
+    display: grid;
+    transition: 400ms;
 }
 
 .action-btns {

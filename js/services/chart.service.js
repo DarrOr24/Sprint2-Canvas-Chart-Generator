@@ -55,10 +55,11 @@ function addTerm(){
 } 
 
 function removeTerm(idx){
-    if(gTermCount===1){
-        alert('You need at least one term')
-        return
-    }
+    // if(gTermCount===1){
+    //     alert('You need at least one term')
+    //     return
+    // }
+    if(gTermCount===0) return
     gTermCount--
     gChart.terms.splice(idx, 1)
     renderEditor()
