@@ -55,6 +55,4 @@ function onOpacityChange(opacity){
     gChart.opacity = opacity
     
     renderBackground(backgroundName)
-
-
 }
