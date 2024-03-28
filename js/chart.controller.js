@@ -103,6 +103,10 @@ function onChartSelect(elChart, chartType){
 function onSubmit(ev){
     ev.preventDefault()
 
+    const elSubmitBtn = document.querySelector('.submit')
+    elSubmitBtn.classList.add('rotate')
+    setTimeout(() => elSubmitBtn.classList.remove('rotate'), 800)
+
     const formData = new FormData(ev.target)
     const formDataObj = Object.fromEntries(formData)
     
@@ -153,7 +157,7 @@ function onDownloadImg(elLink) {
 
 function onSave(elSaveBtn) {
     _saveToStorage()
-    elSaveBtn.classList.add('saved')
-    setTimeout(() => elSaveBtn.classList.remove('saved'), 1200)
+    elSaveBtn.classList.add('rotate')
+    setTimeout(() => elSaveBtn.classList.remove('rotate'), 1200)
 }
 

@@ -54,11 +54,11 @@ canvas {
     transition: 1000ms;
 }
 
-.canvas-btns .saved{
+/* .canvas-btns .rotate{
     transform-origin: center;
     rotate: 360deg;
     scale: 1.6;
-}
+} */
 
 
 

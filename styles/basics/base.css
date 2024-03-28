@@ -48,3 +48,9 @@ img:hover {
     border: 2px solid palevioletred;
     cursor: pointer;
 }
+
+.rotate {
+    transform-origin: center;
+    rotate: 360deg;
+    scale: 1.6;
+}
