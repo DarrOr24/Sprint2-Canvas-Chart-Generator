@@ -31,15 +31,8 @@ function onSelectGalleryChart(elGalleryImg, idx, background=''){
     elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
     elGalleryImg.classList.add('clicked')
 
-    if(background){
-        const elBackground = document.querySelector(background)
-        coverCanvasWithImg(elBackground)
-
-        const elBackgroundImgs = document.querySelectorAll('.background-img')
-        elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
-        elBackground.classList.add('clicked')
-    }
-
+    if(background) renderBackground(background)
+    
     gChart = GALLERY_CHARTS[idx]
     const {terms} = gChart
     gTermCount = terms.length

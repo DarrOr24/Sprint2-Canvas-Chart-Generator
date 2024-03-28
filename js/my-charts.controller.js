@@ -28,16 +28,24 @@ function onCloseMyCharts(){
 }
 
 function onOpenSavedChart(idx){
-    // const myChartsArr = getMyCharts()
-    // gChart = myChartsArr[idx]
+    //resetting clicked areas in editor
+    const elBackgroundImgs = document.querySelectorAll('.background-img')
+    elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
+    const elGalleryImgs = document.querySelectorAll('.gallery-img')
+    elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
+
+
+
     gChart = MY_CHARTS[idx]
-    const {background, terms} = gChart
+    const {backgroundName, terms} = gChart
     gTermCount = terms.length
 
     document.body.classList.remove('my-charts-open')
 
     clearCanvas()
-    if(background) coverCanvasWithImg(background)
+
+    if(backgroundName) renderBackground(backgroundName)
+    
     drawChart()
     renderEditor()
     updateChartTypeEditor() 

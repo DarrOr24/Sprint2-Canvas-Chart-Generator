@@ -58,7 +58,6 @@ function addTerm(){
     renderEditor()
 } 
 
-// function updateTerm(idx, term){} 
 
 function removeTerm(idx){
     if(gTermCount===1){
