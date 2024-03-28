@@ -26,8 +26,8 @@ function onReset(){
     const elBackgroundImgs = document.querySelectorAll('.background-img')
     elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
 
-    const elGalleryImgs = document.querySelectorAll('.gallery-img')
-    elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
+    const elGalleryCards = document.querySelectorAll('.gallery-card')
+    elGalleryCards.forEach(chart => chart.classList.remove('clicked'))
     
     gChart = _createChart()
     updateOpacityEditor()

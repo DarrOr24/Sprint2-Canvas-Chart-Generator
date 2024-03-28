@@ -15,6 +15,9 @@ function renderBackgroundImgs() {
 function onSelectImg(elBackgroundImg, backgroundName) {
     coverCanvasWithImg(elBackgroundImg)
 
+    const elGalleryCards = document.querySelectorAll('.gallery-card')
+    elGalleryCards.forEach(chart => chart.classList.remove('clicked'))
+
     const elBackgroundImgs = document.querySelectorAll('.background-img')
     elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
 
