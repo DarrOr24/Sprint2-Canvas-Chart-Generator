@@ -22,6 +22,10 @@ body.my-charts-open .my-charts-box {
     pointer-events: auto;
 }
 
+.my-charts-btn {
+    z-index: 1;
+}
+
 .my-charts-box .my-charts-title {
     text-transform: uppercase;
     font-size: 1.5em;
@@ -40,7 +44,6 @@ body.my-charts-open .my-charts-box {
     grid-template-areas: "sort-by sort-dir"
                          "search sort-dir";
     row-gap: 0.625em;
-
 }
 
 .sort-by, .search-input, .sort-dir-btn {
