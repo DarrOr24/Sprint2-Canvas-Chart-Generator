@@ -132,14 +132,19 @@ function onClearChart(){
 function onRemoveTerm(idx){
     const elTerms = document.querySelectorAll('.term')
     const elTerm = elTerms[idx]
-    elTerm.classList.add('bounce')
+    elTerm.classList.add('move-around')
     updateFormData()
-    setTimeout(() => removeTerm(idx), 3000)
+    setTimeout(() => removeTerm(idx), 1000)
 }
 
 function onAddTerm(){
     updateFormData()
     addTerm()
+    
+    const elTerms = document.querySelectorAll('.term')
+    const elTerm = elTerms[gTermCount-1]
+    elTerm.classList.add('bounce')
+    setTimeout(() => elTerm.classList.remove('bounce'), 1000)
 }
 
 function updateFormData(){ //Same as submit

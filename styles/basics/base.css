@@ -61,21 +61,47 @@ img:hover {
 }
 
 .bounce {
-    position: absolute;
-    bottom:0;
+    /* translate: 25%; */
     left: 2em;
     animation: 
-        bounce-v1 1s ease-out alternate infinite;
+        bounce 1s linear alternate 1;
+    
 }
 
-@keyframes bounce-v1 {
-    to {
-        translate: 0% -300% ;
+.move-around{
+    animation-name: move-around;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+}
+
+@keyframes bounce {
+    0% {
+        translate: 30%;
+    }
+
+    25% {
+        translate: -15%;
+    }
+
+    50% {
+        translate: 10%;
+    }
+
+    75% {
+        translate: -5%
+    }
+
+    100% {
+        translate: 0%;
     }
 }
 
-@keyframes scale {
-    to {
-        scale: .1;
+@keyframes move-around {
+    25%{
+        transform: rotateY(40deg) rotateZ(20deg);
+    }
+    75%{
+        transform: rotateY(-60deg) rotateZ(40deg);
     }
 }

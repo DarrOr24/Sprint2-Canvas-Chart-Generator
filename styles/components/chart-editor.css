@@ -54,7 +54,6 @@
 }
 
 .chart-form .terms {
-    position: relative;
     grid-area: terms;
     border: 2px solid lightgray;
     padding: 0.5em;
