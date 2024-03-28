@@ -323,6 +323,7 @@ function closeModal() {
 
 function write(str, backgroundName, pos = {x:175, y:10}){
     gCtx.font = '30px Arial'
+    if(str.length > 18) gCtx.font = '25px Arial'
     gCtx.textAlign = 'center'
 	gCtx.textBaseline = 'top'
 

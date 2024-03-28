@@ -48,6 +48,7 @@ function onOpenSavedChart(idx){
     
     drawChart()
     renderEditor()
+    updateOpacityEditor()
     updateChartTypeEditor() 
 }
 

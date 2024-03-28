@@ -41,5 +41,6 @@ function onSelectGalleryChart(elGalleryImg, idx, backgroundName=''){
     drawChart()
     // write(title, backgroundName)
     renderEditor()
+    updateOpacityEditor()
     updateChartTypeEditor()
 }

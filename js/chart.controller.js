@@ -8,6 +8,7 @@ function onInit() {
     renderBackgroundImgs()
     renderGalleryCharts()
     renderGalleryImgs()
+    updateOpacityEditor()
     MY_CHARTS.forEach(chart => chart.background = '')
     gElCanvas = document.querySelector('canvas')
 	gCtx = gElCanvas.getContext('2d')
@@ -29,6 +30,7 @@ function onReset(){
     elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
     
     gChart = _createChart()
+    updateOpacityEditor()
     renderEditor()
 }
 

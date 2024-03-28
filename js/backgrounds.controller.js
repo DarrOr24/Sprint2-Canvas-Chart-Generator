@@ -24,9 +24,7 @@ function onSelectImg(elBackgroundImg, backgroundName) {
     gChart.backgroundName = backgroundName
 
     const elOpacity = document.querySelector('.opacity-input')
-    gChart.opacity = elOpacity.value
-
-   
+    gChart.opacity = elOpacity.value 
 }
 
 function coverCanvasWithImg(elImg) {
@@ -53,6 +51,11 @@ function onOpacityChange(opacity){
     const {backgroundName} = gChart
     if(!backgroundName) return
     gChart.opacity = opacity
-    
     renderBackground(backgroundName)
+}
+
+function updateOpacityEditor(){
+    const {opacity} = gChart
+    const elOpacityInput = document.querySelector('.opacity-input')
+    elOpacityInput.value = opacity
 }
