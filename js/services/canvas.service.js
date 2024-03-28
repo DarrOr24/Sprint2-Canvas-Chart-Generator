@@ -36,7 +36,7 @@ function drawChart(){
             break
 
         case 'line':
-            drawLineChart(valueType, terms)
+            drawLineChart(valueType, terms, backgroundName)
             break
 
         case 'pie':
@@ -137,7 +137,7 @@ function drawPieChart(terms){
     })
 }
 
-function drawLineChart(valueType, terms){
+function drawLineChart(valueType, terms, backgroundName){
     const numOfTerms = terms.length
     terms.forEach((term, idx, arr) => {
         term.percentVal = term.value*100/term.totalVal
@@ -158,13 +158,16 @@ function drawLineChart(valueType, terms){
         gCtx.fillStyle = term.color
 	    gCtx.fill()
 
+        if(backgroundName === '.black') var color = 'white'
+        else color = 'black'
+
         if(idx > 0){
             const line = {
                 x: arr[idx-1].x,
                 y: arr[idx-1].y,
                 xEnd: term.x,
                 yEnd: term.y,
-                color: 'black'
+                color
             }
 
             gCtx.beginPath()

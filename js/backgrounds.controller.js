@@ -23,19 +23,38 @@ function onSelectImg(elBackgroundImg, backgroundName) {
     elBackgroundImg.classList.add('clicked')
     gChart.backgroundName = backgroundName
 
+    const elOpacity = document.querySelector('.opacity-input')
+    gChart.opacity = elOpacity.value
+
    
 }
 
 function coverCanvasWithImg(elImg) {
+    const {opacity, backgroundName} = gChart
+    clearCanvas()
+    if(opacity)gCtx.globalAlpha = opacity
+    // gCtx.globalAlpha = opacity
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    gCtx.globalAlpha = 1.0
     gChart.background = elImg
+    gChart.backgroundName = backgroundName
 }
 
-function renderBackground(background){
-    const elBackground = document.querySelector(background)
+function renderBackground(backgroundName){
+    const elBackground = document.querySelector(backgroundName)
     coverCanvasWithImg(elBackground)
 
     const elBackgroundImgs = document.querySelectorAll('.background-img')
     elBackgroundImgs.forEach(chart => chart.classList.remove('clicked'))
     elBackground.classList.add('clicked')
+}
+
+function onOpacityChange(opacity){
+    const {backgroundName} = gChart
+    if(!backgroundName) return
+    gChart.opacity = opacity
+    
+    renderBackground(backgroundName)
+
+
 }
