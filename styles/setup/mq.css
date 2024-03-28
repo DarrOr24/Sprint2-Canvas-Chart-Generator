@@ -27,6 +27,7 @@
         height: 90vh;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 3fr 1fr;
+        column-gap: 1em;
         align-content: start;
         justify-content: center;
         grid-template-areas: "chart-editor         chart-display"

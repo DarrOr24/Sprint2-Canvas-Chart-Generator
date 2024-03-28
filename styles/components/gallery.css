@@ -1,6 +1,7 @@
 .gallery {
     grid-area: gallery;
     /* display: grid; */
+    align-items: start;
 }
 
 .gallery-title{
@@ -8,6 +9,33 @@
     margin-block: 0.5em;
 }
 
+.gallery-charts{
+    display:grid;
+    grid-auto-flow: column;
+    place-items: center;
+    border: 1px solid lightgray;
+}
+
 .gallery-charts img {
     height: 5em;
 }
+
+/* .backgrounds-selector{
+    grid-area: background-selector;
+    display: grid;
+    place-items: center; 
+}
+
+.backgrounds {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.backgrounds-title{
+    margin-block: 0.5em;
+    background-color: var(--primary--2);
+}
+
+.background-img {
+    height: 5em;   */
+/* } */
