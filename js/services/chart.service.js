@@ -54,7 +54,6 @@ function addTerm(){
     renderEditor()
 } 
 
-
 function removeTerm(idx){
     if(gTermCount===1){
         alert('You need at least one term')

@@ -32,9 +32,13 @@ canvas {
 
 .chart-title {
     position: absolute;
+    top: 0;
     left: 50%;
     translate: -50%;
     width: max-content;
+    /* background-color: var(--primary--2); */
+    background-color: beige;
+    padding-inline: 1em;
 }
 
 .canvas-btns {
