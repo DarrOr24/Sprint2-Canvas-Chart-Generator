@@ -24,19 +24,19 @@ function renderGalleryImgs() {
     document.querySelector('.gallery-charts').innerHTML = strHtmls
 }
 
-function onSelectGalleryChart(elGalleryImg, idx, background=''){
+function onSelectGalleryChart(elGalleryImg, idx, backgroundName=''){
     clearCanvas()
 
     const elGalleryImgs = document.querySelectorAll('.gallery-img')
     elGalleryImgs.forEach(chart => chart.classList.remove('clicked'))
     elGalleryImg.classList.add('clicked')
 
-    if(background) renderBackground(background)
+    if(backgroundName) renderBackground(backgroundName)
     
     gChart = GALLERY_CHARTS[idx]
     const {terms} = gChart
     gTermCount = terms.length
-
+    
     drawChart()
     renderEditor()
     updateChartTypeEditor()

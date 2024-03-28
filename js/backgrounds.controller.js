@@ -27,9 +27,7 @@ function onSelectImg(elBackgroundImg, backgroundName) {
 }
 
 function coverCanvasWithImg(elImg) {
-    // gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    // gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
     gChart.background = elImg
 }
 

@@ -4,11 +4,11 @@ const GALLERY_CHARTS = []
 
 function renderGalleryCharts(){
     const galleryTermsArr = getGalleryTerms()
-    
-    const galleryChart1 = _createChart('rect', 'Life', '','units', galleryTermsArr[0])
-    const galleryChart2 = _createChart('circle', 'Favorite Movies', '','percent', galleryTermsArr[1])
-    const galleryChart3 = _createChart('pie', 'Balanced Workout', '','units', galleryTermsArr[2])
-    const galleryChart4 = _createChart('line', 'Best Cities', '','percent', galleryTermsArr[3])
+
+    const galleryChart1 = _createChart('rect', 'Life', '.math' ,'units', galleryTermsArr[0])
+    const galleryChart2 = _createChart('circle', 'Favorite Movies', '.flower','percent', galleryTermsArr[1])
+    const galleryChart3 = _createChart('pie', 'Balanced Workout', '.black','units', galleryTermsArr[2])
+    const galleryChart4 = _createChart('line', 'Best Cities', '.math','percent', galleryTermsArr[3])
 
     GALLERY_CHARTS.push(galleryChart1)
     GALLERY_CHARTS.push(galleryChart2)

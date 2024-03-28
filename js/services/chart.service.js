@@ -41,10 +41,6 @@ function insertInputData(formDataObj){
       
 }
 
-// function renderChart(){
-//     console.log(gChart)
-// }
-
 function addTerm(){
     if(gTermCount===4){
         alert('Reached max amount of terms')
@@ -77,11 +73,11 @@ function _createTerm(name='', value=getRandomInt(10, 300), color= getRandomColor
     }
 }
 
-function _createChart(theme='', title = 'Title', background='', valueType='percent', terms= [_createTerm(),_createTerm()]) {
+function _createChart(theme='', title = 'Title', backgroundName='', valueType='percent', terms= [_createTerm(),_createTerm()]) {
     return {
         theme,
         title,
-        background,
+        backgroundName,
         valueType,
         terms
     }
