@@ -21,7 +21,6 @@
 .main-container-layout{
     display: grid;
     row-gap: 0.5em;
-    
     grid-template-areas: "chart-display"
                          "chart-editor "        
                          "background-selector"

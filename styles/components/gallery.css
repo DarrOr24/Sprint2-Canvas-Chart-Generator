@@ -17,13 +17,10 @@
     background-color: beige;
 }
 
-
-
 .gallery-card {
     position: relative;
     background-color: darkgray;
     cursor: pointer;
-    
 }
 
 .gallery-card::before, .gallery-card::after {

@@ -1,7 +1,6 @@
 'use strict'
 
 function renderGalleryImgs() {
-
     const strHtmls = `<div class="gallery-card" onclick="onSelectGalleryChart(this, 0, '.math')">
                         <img src="img/Life.jpg" class="gallery-img life" />
                         <h2 class="text">Life</h2>

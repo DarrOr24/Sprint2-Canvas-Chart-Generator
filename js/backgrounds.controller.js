@@ -1,7 +1,6 @@
 'use strict'
 
 function renderBackgroundImgs() {
-
     const strHtmls = `
             <img src="img/triangles.jpg" onclick="onSelectImg(this, '.triangle')" class="background-img triangle" />
             <img src="img/paint.jpg" onclick="onSelectImg(this, '.paint')" class="background-img paint" />

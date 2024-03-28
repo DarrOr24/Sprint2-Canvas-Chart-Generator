@@ -7,8 +7,6 @@ var gElCanvas
 var gCtx
 
 
-// function getChart(){}
-
 function clearCanvas(){
     gCtx.fillStyle = 'whitesmoke'
     // gCtx.fillStyle = '#f0f0f0'

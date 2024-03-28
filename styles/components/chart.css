@@ -11,11 +11,6 @@
     padding: 0.7em 0.7em 0;
 }
 
-canvas {
-    /* border: 1px solid lightgray; */
-}
-
-
 .modal {
     position: absolute;
     z-index: 1;
