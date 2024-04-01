@@ -5,10 +5,10 @@ const GALLERY_CHARTS = []
 function renderGalleryCharts(){
     const galleryTermsArr = getGalleryTerms()
 
-    const galleryChart1 = _createChart('rect', 'Life', '.math' ,'units',1, galleryTermsArr[0])
-    const galleryChart2 = _createChart('circle', 'Favorite Movies', '.flower','percent',0.6, galleryTermsArr[1])
-    const galleryChart3 = _createChart('pie', 'Balanced Workout', '.black','units',0.4, galleryTermsArr[2])
-    const galleryChart4 = _createChart('line', 'Best Cities', '.math','percent',1, galleryTermsArr[3])
+    const galleryChart1 = _createChart('rect', 'Life', 'math' ,'units',1, galleryTermsArr[0])
+    const galleryChart2 = _createChart('circle', 'Favorite Movies', 'flower','percent',0.6, galleryTermsArr[1])
+    const galleryChart3 = _createChart('pie', 'Balanced Workout', 'black','units',0.4, galleryTermsArr[2])
+    const galleryChart4 = _createChart('line', 'Best Cities', 'math','percent',1, galleryTermsArr[3])
 
     GALLERY_CHARTS.push(galleryChart1)
     GALLERY_CHARTS.push(galleryChart2)

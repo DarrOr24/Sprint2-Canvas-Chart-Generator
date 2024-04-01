@@ -2,11 +2,11 @@
 
 function renderBackgroundImgs() {
     const strHtmls = `
-            <img src="img/triangles.jpg" onclick="onSelectImg(this, '.triangle')" class="background-img triangle" />
-            <img src="img/paint.jpg" onclick="onSelectImg(this, '.paint')" class="background-img paint" />
-			<img src="img/math.jpg" onclick="onSelectImg(this, '.math')" class="background-img math" />
-			<img src="img/flower.jpg" onclick="onSelectImg(this, '.flower')" class="background-img flower" />
-			<img src="img/black.jpg" onclick="onSelectImg(this, '.black')" class="background-img black" />
+            <img src="img/triangles.jpg" onclick="onSelectImg(this, 'triangle')" class="background-img triangle" />
+            <img src="img/paint.jpg" onclick="onSelectImg(this, 'paint')" class="background-img paint" />
+			<img src="img/math.jpg" onclick="onSelectImg(this, 'math')" class="background-img math" />
+			<img src="img/flower.jpg" onclick="onSelectImg(this, 'flower')" class="background-img flower" />
+			<img src="img/black.jpg" onclick="onSelectImg(this, 'black')" class="background-img black" />
             `
     document.querySelector('.backgrounds').innerHTML = strHtmls
 }
@@ -39,7 +39,7 @@ function coverCanvasWithImg(elImg) {
 }
 
 function renderBackground(backgroundName){
-    const elBackground = document.querySelector(backgroundName)
+    const elBackground = document.querySelector(`.${backgroundName}`)
     coverCanvasWithImg(elBackground)
 
     const elBackgroundImgs = document.querySelectorAll('.background-img')

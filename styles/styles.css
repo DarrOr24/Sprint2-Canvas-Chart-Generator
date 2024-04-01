@@ -10,7 +10,6 @@
 
 /* components */
 @import url(components/main-header.css);
-@import url(components/form.css);
 @import url(components/chart.css);
 @import url(components/chart-editor.css);
 @import url(components/buttons.css);

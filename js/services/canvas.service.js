@@ -325,7 +325,7 @@ function write(str, backgroundName, pos = {x:175, y:10}){
     gCtx.textAlign = 'center'
 	gCtx.textBaseline = 'top'
 
-    if(backgroundName==='.black') var color='white'
+    if(backgroundName==='black') var color='white'
     else color='black'
 
     str = str.toUpperCase()
